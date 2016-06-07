@@ -113,7 +113,7 @@ else
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 pt50">
-                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><?php echo $row['contact_main_title']?></h1>                       
+                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><?php echo $row['contact_main_title']?><small class="color-light alpha7"><?php echo $row['contact_sub_title']?></small></h1>                       
                     </div>
                 </div>
             </div>
@@ -189,14 +189,7 @@ else
             </div>
         </div>
     </div>
-	
-<!--	<div class="pt75 pb75" style="background:url(assets/img/bg/img-bg-13.jpg) 50% 0 no-repeat;">
-        <h1 class="font-pacifico text-center color-light"> Your Question Unlisted?</h1>
-        <h5 class="text-center color-light"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, libero, temporibus quam eaque<br>numquam debitis excepturi assumenda necessitatibus dolore dolorum vero enim distinctio ipsa.</h5>
-        <p class="text-center"> <a class="button-3d button-md button-pasific">Submit Ticket Now</a>
-        </p>
-    </div> -->
-	
+
 	<div id="footer" class="footer-two pt20">
         <div class="container-fluid">
             <div class="container">

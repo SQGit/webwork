@@ -96,7 +96,8 @@ $result = mysqli_query($conn, $query);
 								<a id="showpicenquiryform" onclick="showpicenquiryform();" class="text-center button btn_2 button-md text-center btn-100 bg_blue">Don't have a Account ?&nbsp;&nbsp;<span class="col-grn">Apply here</span></a>
 							</div>
 							<div class="pt35">
-								<a id="showpicenterform" onclick="showpicenterform();" class="text-center" style="color:#333; background-color:#fff; padding:10px 20px; border:1px solid #949490; font-size:14px; border-radius:25px; font-weight:normal; cursor:pointer;">You have a PIC... &nbsp;&nbsp;<span class="col_blue">Submit</span></a>
+								<!--<a id="showpicenterform" onclick="showpicenterform();" class="text-center" style="color:#333; background-color:#fff; padding:10px 20px; border:1px solid #949490; font-size:14px; border-radius:25px; font-weight:normal; cursor:pointer;">You have a PIC... &nbsp;&nbsp;<span class="col_blue">Submit</span></a> -->
+								<a href="#" id="showpicenterform" onclick="showpicenterform();" class="rdirect_link">Respond with PIC</a>
 							</div>
                         </div>
                     </form>                                                         
@@ -270,7 +271,7 @@ mysqli_free_result($result);
 
 
     <!-- start-->
-    <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="assets/img/bg/img-bg-2.jpg">
+    <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="assets/img/bg/home_ready.jpg">
         <div class="container">
             <div class="row pt75">
                 <div class="col-md-12 text-center">

@@ -18,6 +18,7 @@ include '../includes/db_config.php';
     <link rel="shortcut icon" href="../assets/img/favicon.png">
     <link rel="stylesheet" href="../assets/css/core/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/core/animate.min.css">
+	<link rel="stylesheet" href="../assets/css/core/bootstrap-multiselect.css">	
     <link rel="stylesheet" href="../assets/css/core/bootstrap-fileupload.min.css">
     <link rel="stylesheet" href="../assets/bootstrap3-editable-1.5.1/bootstrap3-editable/css/bootstrap-editable.css">
     <link rel="stylesheet" href="../assets/bootstrap3-editable-1.5.1/wysihtml5/bootstrap-wysihtml5-0.0.2.css">
@@ -69,6 +70,7 @@ include '../includes/navbar.php';
 						<li><a><i class="fa fa-edit"></i> Investments <span class="fa fa-chevron-down"></span></a>
                             <ul style="display: none;" class="nav child_menu">                                
                                 <li><a href="#" onclick="transection_details()">Transaction Details</a></li>
+								<li><a href="#" onclick="port_amount_details()">Portfolio Amount Manage</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -88,6 +90,7 @@ include '../includes/navbar.php';
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
 <script src="../assets/js/core/bootstrap-fileupload.js"></script>
+<script src="../assets/js/core/bootstrap-multiselect.js"></script>
 <script src="../assets/bootstrap3-editable-1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <script src="../assets/bootstrap3-editable-1.5.1/wysihtml5/wysihtml5-0.3.0.min.js"></script>
 <script src="../assets/bootstrap3-editable-1.5.1/wysihtml5/wysihtml5.js"></script>
@@ -106,5 +109,6 @@ include '../includes/navbar.php';
 <script src="../assets/js/main/main.js"></script>
 <script src="custom.js"></script>
 <script src="admin_page.js"></script>
+
 </body>
 </html>

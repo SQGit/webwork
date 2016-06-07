@@ -45,11 +45,11 @@ $data=array(
 
 'currency_code'=>'USD',
 
-'thanks_page'=>"http://".$_SERVER['HTTP_HOST'].'/site31/investment.php?msg=success',
+'thanks_page'=>"http://".$_SERVER['HTTP_HOST'].'/invesment.php?msg=success',
 
-'notify_url'=>"http://".$_SERVER['HTTP_HOST'].'/site31/ipn.php',
+'notify_url'=>"http://".$_SERVER['HTTP_HOST'].'/ipn.php',
 
-'cancel_url'=>"http://".$_SERVER['HTTP_HOST'].'/site31/invesment.php?msg=cancel',
+'cancel_url'=>"http://".$_SERVER['HTTP_HOST'].'/invesment.php?msg=cancel',
 
 'paypal_mode'=>true,
 

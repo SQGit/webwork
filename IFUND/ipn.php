@@ -129,7 +129,7 @@ function infotuts_ipn($im_debut_ipn) {
         $create_date=date('Y-m-d H:i:s');
         $payment_date=date('Y-m-d H:i:s');
 
-        mysqli_query($con,"INSERT INTO transection_tbl (investor_id,item_name,payer_email,first_name,last_name,amount,currency,country,txn_id,txn_type,payer_id,payment_status,payment_type,create_date,payment_date) VALUES ('$investor_id','$item_name','$payer_email','$first_name','$last_name','$amount','$currency','$country','$txn_id','$txn_type','$payer_id','$payment_status','$payment_type','$create_date','$payment_date')");
+        mysqli_query($conn,"INSERT INTO transection_tbl (investor_id,item_name,payer_email,first_name,last_name,amount,currency,country,txn_id,txn_type,payer_id,payment_status,payment_type,create_date,payment_date) VALUES ('$investor_id','$item_name','$payer_email','$first_name','$last_name','$amount','$currency','$country','$txn_id','$txn_type','$payer_id','$payment_status','$payment_type','$create_date','$payment_date')");
 
         mysqli_close($con);
     }
@@ -137,5 +137,4 @@ function infotuts_ipn($im_debut_ipn) {
 
 $obj = New ipn();
 $obj->ipn_response($_REQUEST);
-
 ?>

@@ -129,10 +129,16 @@ else
     </header>
 	
     <div id="welcome" class="pt25 pb25"></div>
-	<div id="paypal_msg" class="text-center"><?php echo $msg; ?></div>
+	<?php
+	if($msg=='success'){
+		echo '<div id="paypal_msg" class="text-center pb15 success" style="font-size:18px">Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you.</div>';
+	}else if($msg=='cancel'){
+		echo '<div id="paypal_msg" class="text-center pb15 error" style="font-size:18px">Sorry! Your transaction has not been canceled. </div>';
+	}
+	?>
+
 	<div id="investment Criteria" class="container">
-	
-	
+		
 	<?php
 	$query7 = "SELECT * from investment_criteria";
 	$result7 = mysqli_query($conn, $query7);
@@ -150,6 +156,9 @@ else
 	</div>';
 	}?>
 	
+	<?php
+	include 'includes/ach_modal.php';
+	?>
 	<!-- Portfolio group -->
 	<div class="row row-centered bg-gray mt20 p20">
 	<div class="row-height">
@@ -218,7 +227,7 @@ else
 	<input type="hidden" id="hv" value="ok"/>
 	<div class="col-md-12 col-sm-12 text-center pt25 pb25">                            
 		<!--<button type="submit" id="" class="btn btn-info">Submit</button>-->
-		<input type="submit" class="btn btn-info" name="submit" id="submit_single_portfolio" value="Submit"/>
+		<input type="submit" class="btn btn-info" name="submit" id="submit_single_portfolio" value="Pay with Paypal"/><br/>(or)<br/><a href="#" data-toggle="modal" data-target="#ach_transfer"></i>ACH Transfer</a>
     </div>
 	
 	</div>
@@ -264,8 +273,8 @@ else
 	$query5 = "SELECT * FROM double_port";
 	$result5 = mysqli_query($conn, $query5);
 	$row5=mysqli_fetch_assoc($result5);
-		echo '<input type="hidden" id="double_min" name="double_min" value="'.$row5['min_amt'].'"/>';
-		echo '<input type="hidden" id="double_max" name="double_max" value="'.$row5['max_amt'].'"/>';
+		echo '<input type="hidden" id="double_min" name="double_min" value="'.$row5['double_min_amt'].'"/>';
+		echo '<input type="hidden" id="double_max" name="double_max" value="'.$row5['double_max_amt'].'"/>';
 		echo '<p class="fs-14">$'.$row5['min_amt'].' - $'.$row5['max_amt'].'</p>';
 	mysqli_free_result($result5);
 	?>
@@ -276,7 +285,7 @@ else
 	</div>
 	<div class="col-md-12 col-sm-12 text-center pt25 pb25">                            
 		<!--<button type="submit" id="" class="btn btn-info">Submit</button>-->
-		<input type="submit" class="btn btn-info" name="submit" id="submit_double_portfolio" value="Submit"/>
+		<input type="submit" class="btn btn-info" name="submit" id="submit_double_portfolio" value="Pay with Paypal"/><br/>(or)<br/><a href="#" data-toggle="modal" data-target="#ach_transfer"></i>ACH Transfer</a>
     </div>	
 	</div>
 	</div>
@@ -315,8 +324,8 @@ else
 	$query6 = "SELECT * FROM full_port";
 	$result6 = mysqli_query($conn, $query6);
 	$row6=mysqli_fetch_assoc($result6);
-		echo '<input type="hidden" id="full_min" name="full_min" value="'.$row6['min_amt'].'"/>';
-		echo '<input type="hidden" id="full_max" name="full_max" value="'.$row6['max_amt'].'"/>';
+		echo '<input type="hidden" id="full_min" name="full_min" value="'.$row6['full_min_amt'].'"/>';
+		echo '<input type="hidden" id="full_max" name="full_max" value="'.$row6['full_max_amt'].'"/>';
 		echo '<p class="fs-14">$'.$row6['min_amt'].' - $'.$row6['max_amt'].'</p>';
 	mysqli_free_result($result6);
 	?>
@@ -326,7 +335,7 @@ else
 	</div>
 	<div class="col-md-12 col-sm-12 text-center pt25 pb25">                            
 		<!--<button type="submit" id="" class="btn btn-info">Submit</button>-->
-		<input type="submit" class="btn btn-info" name="submit" id="submit_full_portfolio" value="Submit"/>
+		<input type="submit" class="btn btn-info" name="submit" id="submit_full_portfolio" value="Pay with Paypal"/><br/>(or)<br/><a href="#" data-toggle="modal" data-target="#ach_transfer"></i>ACH Transfer</a>
     </div>	
 	</div>
 	</div>
@@ -386,7 +395,7 @@ else
             </div>
         </div>
     </div>
-    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/jquery.min.js"></script>	
     <script src="assets/js/core/jquery-ui.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>
     <script src="investment.js"></script>

@@ -253,10 +253,9 @@ if($_POST['action'] && $_POST['action']=="pic_generate"){
 // get projects list start//
 if($_POST['action'] && $_POST['action']=="projects")
 {
-	$sql = "SELECT project_id, project_name, status, funding_required from project_list";
+	$sql = 'SELECT project_id, project_name from project_list';
 	
 	$result = mysqli_query($conn, $sql);
-	
 	echo '<div class="page-title">
 			<div class="title_left">
 				<h3>Project Management Panel</h3>
@@ -268,8 +267,21 @@ if($_POST['action'] && $_POST['action']=="projects")
 				<div class="x_panel">
 					<div class="x_title">
 						<h2>Projects</h2>
+						
+						<form class ="col-md-offset-1 col-md-5" method="post" id="fund_req_project">
+						<select name="fund_project[]" id="fund_project" multiple="multiple">';						
+						while ($row = mysqli_fetch_assoc($result)) {
+							echo '<option value="'.$row['project_id'].'">'.$row['project_name'].'</option>';
+						}	
+						mysqli_free_result($result);
+						echo '</select>
+						<input type="button" class="btn-success btn-lg" id="project_selected" value="Update"/>
+						</form>
+						
 						<ul class="nav navbar-right mt10">
 							<a href="#" onclick="add_edit_project_UI();" class="text-capitalize btn btn-info"><i class="fa fa-plus"></i> Add New Project </a>
+							
+							
 						</ul>
 						<div class="clearfix"></div>
 					</div>
@@ -284,7 +296,9 @@ if($_POST['action'] && $_POST['action']=="projects")
 							</tr>
 						</thead>
 						<tbody>';
-
+						
+	$sql = "SELECT project_id, project_name, status, funding_required from project_list";
+	$result = mysqli_query($conn, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
 		
 		echo '<tr><td>#</td>
@@ -308,31 +322,34 @@ if($_POST['action'] && $_POST['action']=="projects")
 			if($row['status']!=='active'){					
 				echo '<a href="#" onclick="enable_project('.$row['project_id'].')" class="btn btn-success btn-xs m2"><i class="fa fa-paper-plane"></i> Activate </a> ';
 			}else{
-				echo '<a href="#" onclick="disable_project('.$row['project_id'].')" class="btn btn-danger btn-xs m2"><i class="fa fa-trash-o"></i> Disable </a> ';
-				if($row['funding_required'] == 1){
-					echo '<input class="funding" data-name="funding_required" data-pk="'.$row['project_id'].'" type="checkbox" checked>';
-				}else if($row['funding_required'] == 0){
-					echo '<input class="funding" data-name="funding_required" data-pk="'.$row['project_id'].'" type="checkbox">';
-				}
+				echo '<a href="#" onclick="disable_project('.$row['project_id'].')" class="btn btn-danger btn-xs m2"><i class="fa fa-trash-o"></i> Disable </a> ';				
 			}
 		echo '</td></tr>';
 	}
 	
-	echo '</tbody></table></div></div></div>';	
+	echo '</tbody></table></div></div></div>';
 }	
 // get projects list end//
 
 //funding required//
-if($_POST['action'] && $_POST['action'] == "funding_required") {
-	$name = $_POST['name'];
-	$id=$_POST['pk'];
-    $value=$_POST['value'];
-    $result=mysqli_query($conn, "UPDATE project_list SET ".$name." = '".$value."' WHERE project_id=$id") or die(mysqli_error($conn)); 
-    if($result){
-		echo "success";
+if($_POST['action'] && $_POST['action'] == "fund_req_project") {
+
+$sql = "UPDATE project_list SET funding_required='1' where project_id IN(";
+//$last_key = end(array_keys($_POST['fund_project']));
+
+foreach ($_POST['fund_project'] as $key => $project_id)
+{
+	$sql .= "$project_id";
+	
+	if (next($_POST['fund_project'])==true)
+	{
+		$sql .= ",";
 	}else{
-		echo mysqli_error($conn);
-	}
+		$sql .= ")";
+	}		
+}
+//echo $sql;
+mysqli_query($conn, $sql);
 }
 
 
@@ -1860,7 +1877,7 @@ if($_POST['action'] && $_POST['action']=="transection_details")
 					<td>'.$row['payment_type'].'</td>
 					<td>'.$row['payment_status'].'</td>
 					<td>'.$row['payment_date'].'</td>					
-					<td><span href="#" class="inlineedit" data-name="note" data-type="text" data-pk="'.$row['txn_id'].'" data-url="getadmin.php">'.$row['note'].'</span></td>
+					<td><span href="#" class="inlineedit" data-name="note" data-type="text" data-pk="'.$row['txn_id'].'" data-url="pjtlstupdate.php">'.$row['note'].'</span></td>
 				</tr>';
 		}
 	}
@@ -1872,5 +1889,73 @@ if($_POST['action'] && $_POST['action']=="transection_details")
 	echo '</tbody></table></div></div></div>';	
 }
 
+//get portfolio amount details
+if($_POST['action'] && $_POST['action']=="port_amount_details")
+{
+	echo '<div class="page-title">
+			<div class="title_left">
+				<h3>Portfolio Details</h3>
+			</div>
+		  </div> 
+		<div class="clearfix"></div>
+		<div class="row">';
+		echo '<div class="col-md-4"> 
+				<div class="x_panel">
+				<h3 class="text-center">Single Portfolio</h3>
+					<table class="table table-striped table-bordered transaction" id="transaction">
+						<thead>
+							<tr>
+								<th width="auto" class="text-center">Amount</th>								
+							</tr>
+						</thead>
+						<tbody>';
+		$sql = "SELECT * from single_port";
+		$result = mysqli_query($conn, $sql);
+		
+		while ($row = mysqli_fetch_assoc($result)) {
+			
+			echo '<tr>
+								
+					<td><span href="#" class="inlineedit" data-name="amount" data-type="text" data-pk="'.$row['id'].'" data-url="pjtlstupdate.php">'.$row['amount'].'</span></td>
+				</tr>';
+		}
+
+	echo '</tbody></table></div></div>';
+	
+		echo '<div class="col-md-4"> 
+			<div class="x_panel">
+			<h3 class="text-center">Double Portfolio</h3>';
+					
+		$sql = "SELECT * from double_port";
+		$result = mysqli_query($conn, $sql);
+		
+		while ($row = mysqli_fetch_assoc($result)) {
+			
+			echo '<h5>Min Amount : <span href="#" class="inlineedit" data-name="double_min_amt" data-type="text" data-pk="'.$row['id'].'" data-url="pjtlstupdate.php">'.$row['double_min_amt'].'</span></h5>';
+			
+			echo '<h5>Max Amount : <span href="#" class="inlineedit" data-name="double_max_amt" data-type="text" data-pk="'.$row['id'].'" data-url="pjtlstupdate.php">'.$row['double_max_amt'].'</span></h5>';
+		}
+
+	echo '</div></div>';
+	
+	
+	echo '<div class="col-md-4"> 
+			<div class="x_panel">
+			<h3 class="text-center">Full Portfolio</h3>';
+					
+		$sql = "SELECT * from full_port";
+		$result = mysqli_query($conn, $sql);
+		
+		while ($row = mysqli_fetch_assoc($result)) {
+			
+			echo '<h5>Min Amount : <span href="#" class="inlineedit" data-name="full_min_amt" data-type="text" data-pk="'.$row['id'].'" data-url="pjtlstupdate.php">'.$row['full_min_amt'].'</span></h5>';
+			
+			echo '<h5>Max Amount : <span href="#" class="inlineedit" data-name="full_max_amt" data-type="text" data-pk="'.$row['id'].'" data-url="pjtlstupdate.php">'.$row['full_max_amt'].'</span></h5>';
+		}
+
+	echo '</div></div>';
+}
+
+echo '</div>';
 
 ?>

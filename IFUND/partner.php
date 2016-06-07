@@ -5,7 +5,7 @@ if(!(isset($_SESSION['username']) || isset($_SESSION['inv_id']) || isset($_SESSI
 	header("location: pic_user.php"); // Redirecting To Other Page
 }
 include 'includes/db_config.php';
-$query = "select * from partners";
+$query = "select * from partner_page";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +114,7 @@ else
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 pt50">
-                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><?php echo $record['partner_main_title']?></h1>
+                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><?php echo $record['partner_main_title']?><small class="color-light alpha7"><?php echo $record['partner_sub_title']?></small></h1>
                     </div>
                 </div>
             </div>
@@ -132,6 +132,7 @@ else
         <ul class="nav nav-pills nav-stacked partner">
 		
 		<?php
+		$query = "select * from partners";
 		$result = mysqli_query($conn, $query); 
 		$i=0;
 		while($record = mysqli_fetch_array($result))

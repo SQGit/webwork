@@ -155,7 +155,7 @@
             </div>
         </div>
     </div>
-	
+	<!-- Login Modal -->
 	<div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content pl25 pr25">
@@ -192,3 +192,4 @@
             </div>
         </div>
     </div>
+	

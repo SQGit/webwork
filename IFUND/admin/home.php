@@ -93,7 +93,7 @@ mysqli_free_result($result);
     </div>
 </div>
     
-    <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="../assets/img/bg/img-bg-2.jpg">
+    <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="../assets/img/bg/home_ready.jpg">
         <div class="container">
             <div class="row pt75">
                 <div class="col-md-12 text-center">

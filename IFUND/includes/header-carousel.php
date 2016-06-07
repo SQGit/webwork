@@ -5,30 +5,30 @@
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="item carousel-img carousel-img4 active">
+            <div class="item carousel-img carousel-img1 active">
                 <div class="carousel-caption text-left animated" data-animation="bounceInLeft" data-animation-delay="100">
-                    <h1 class="font-montserrat  text-uppercase text-left color-black alpha7 mt-50">GET ACCESS TO OUR INVITE ONLY PRIVATE INVESTMENT PLATFORM </h1>
-                    <p class="mt25 text-left" style="color:#4D4D4D;"><i class="fa fa-check"></i> Great Ideas Meet Awesome Opportunities
+                    <h1 class="font-montserrat  text-uppercase text-left color-white alpha7 mt-50">GET ACCESS TO OUR INVITE ONLY PRIVATE INVESTMENT PLATFORM </h1>
+                    <p class="mt25 text-left" style="color:#fff;"><i class="fa fa-check"></i> Great Ideas Meet Awesome Opportunities
                         <br>
                         <a href="#welcome" class="button button-pasific hover-ripple-out button-md mt30">View More</a>
                     </p>
                 </div>
             </div>
-			<div class="item carousel-img carousel-img5">
+			<div class="item carousel-img carousel-img2">
                 <div class="carousel-caption text-left animated" data-animation="bounceInLeft" data-animation-delay="100">
-                    <h1 class="font-montserrat text-uppercase text-left color-black alpha7 mt-50">CONNECT WITH AMAZING & PASSIONATE, ENTREPRENEURS AND THEIR DISRUPTIVE IDEAS AND INNOVATIONS</h1>
-                    <p class="mt25 text-left" style="color:#4D4D4D;"><i class="fa fa-check"></i> Great early stage startups in USA, Africa and India
+                    <h1 class="font-montserrat text-uppercase text-left color-white alpha7 mt-50">CONNECT WITH AMAZING & PASSIONATE, ENTREPRENEURS AND THEIR DISRUPTIVE IDEAS AND INNOVATIONS</h1>
+                    <p class="mt25 text-left" style="color:#fff;"><i class="fa fa-check"></i> Great early stage startups in USA, Africa and India
                         <br>
                         <a href="#welcome" class="button button-pasific hover-ripple-out button-md mt30">View More</a>
                     </p>
                 </div>
             </div>
-			<div class="item carousel-img carousel-img6">
+			<div class="item carousel-img carousel-img3">
                 <div class="carousel-caption text-left animated" data-animation="bounceInLeft" data-animation-delay="100">
-                    <h1 class="font-montserrat text-uppercase text-left color-black alpha7 mt-50">INVESTING HAD NEVER BEEN THIS EASY</h1>
-                    <p class="mt25 text-left" style="color:#4D4D4D;"><i class="fa fa-check"></i> We Thrive on Trust, Transparency, and Diligence.
+                    <h1 class="font-montserrat text-uppercase text-left color-white alpha7 mt-50">INVESTING HAD NEVER BEEN THIS EASY</h1>
+                    <p class="mt25 text-left" style="color:#fff;"><i class="fa fa-check"></i> We Thrive on Trust, Transparency, and Diligence.
                         <br/><br/>
-						<span class="text-right color-black-dark"><span style="font-family:Tekton Pro">Trust, is an earned commodity every other thing depends on it.</span><br/>Emeka Adagbo CEO/Co-founder ifindcard.</span>
+						<span class="text-right color-white-dark mt120"><span style="font-family:Tekton Pro">Trust, is an earned commodity every other thing depends on it.</span><br/>Emeka Adagbo CEO/Co-founder ifindcard.</span>
 						<br/>
                         <a href="#welcome" class="button button-pasific hover-ripple-out button-md mt30">View More</a></p>
                 </div>

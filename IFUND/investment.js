@@ -91,9 +91,12 @@ function full_portfolio_validate(){
 $(document).ready(function() {
     $(".tabs-menu a").click(function(event) {
         event.preventDefault();
-      
         var tab = $(this).attr("href");
-        $(".tab-content").not(tab).css("display", "none");
+        $(".tab-content1").not(tab).css("display", "none");
         $(tab).fadeIn();
     });
+	
+
+	
 });
+

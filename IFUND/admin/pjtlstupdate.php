@@ -28,7 +28,7 @@ if(($_POST['name']=='about_section') Or ($_POST['name']=='about_section_desc') O
     }   
 }
 
-if(($_POST['name']=='contact_address') Or ($_POST['name']=='contact_phone') Or ($_POST['name']=='contact_mail') Or ($_POST['name']=='	contact_main_title')){
+if(($_POST['name']=='contact_address') Or ($_POST['name']=='contact_phone') Or ($_POST['name']=='contact_mail') Or ($_POST['name']=='contact_main_title') Or ($_POST['name']=='contact_sub_title')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
     $value=$_POST['value'];
@@ -41,7 +41,7 @@ if(($_POST['name']=='contact_address') Or ($_POST['name']=='contact_phone') Or (
     }   
 }
 
-if(($_POST['name']=='faq_main_title') Or ($_POST['name']=='faq_sub_title') Or ($_POST['name']=='faq_question') Or ($_POST['name']=='		faq_ans')){
+if(($_POST['name']=='faq_question') Or ($_POST['name']=='faq_ans')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
     $value=$_POST['value'];
@@ -51,6 +51,19 @@ if(($_POST['name']=='faq_main_title') Or ($_POST['name']=='faq_sub_title') Or ($
        mysqli_query($conn, "INSERT INTO faq($name) VALUES('$value')") or die(mysqli_error($conn)); 
     }else{		
        mysqli_query($conn, "UPDATE faq SET ".$name." = '".$value."' WHERE faq_id=$id") or die(mysqli_error($conn)); 
+    }   
+}
+
+if(($_POST['name']=='faq_main_title') Or ($_POST['name']=='faq_sub_title')){
+	$name = $_POST['name'];
+	$id=$_POST['pk'];
+    $value=$_POST['value'];
+    $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM faq_page WHERE id=$id") or die(mysqli_error($conn));
+    $count= mysqli_fetch_row($result);
+    if($count[0]==0){
+       mysqli_query($conn, "INSERT INTO faq_page($name) VALUES('$value')") or die(mysqli_error($conn)); 
+    }else{		
+       mysqli_query($conn, "UPDATE faq_page SET ".$name." = '".$value."' WHERE id=$id") or die(mysqli_error($conn)); 
     }   
 }
 
@@ -106,7 +119,7 @@ if(($_POST['name']=='document_group_name') Or ($_POST['name']=='document_name') 
     }   
 }
 
-if(($_POST['name']=='partner_country') Or ($_POST['name']=='partner_profession') Or ($_POST['name']=='partner_desc') Or ($_POST['name']=='partner_main_title')){
+if(($_POST['name']=='partner_country') Or ($_POST['name']=='partner_profession') Or ($_POST['name']=='partner_desc')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
     $value=$_POST['value'];
@@ -118,6 +131,21 @@ if(($_POST['name']=='partner_country') Or ($_POST['name']=='partner_profession')
        mysqli_query($conn, "UPDATE partners SET ".$name." = '".$value."' WHERE partners_id=$id") or die(mysqli_error($conn)); 
     }   
 }
+
+if(($_POST['name']=='partner_sub_title') Or ($_POST['name']=='partner_main_title')){
+	$name = $_POST['name'];
+	$id=$_POST['pk'];
+    $value=$_POST['value'];
+    $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM partner_page WHERE id=$id") or die(mysqli_error($conn));
+    $count= mysqli_fetch_row($result);
+    if($count[0]==0){
+       mysqli_query($conn, "INSERT INTO partner_page($name) VALUES('$value')") or die(mysqli_error($conn)); 
+    }else{		
+       mysqli_query($conn, "UPDATE partner_page SET ".$name." = '".$value."' WHERE id=$id") or die(mysqli_error($conn)); 
+    }   
+}
+
+
 
 if(($_POST['name']=='traction_name') Or ($_POST['name']=='traction_name_desc') Or ($_POST['name']=='traction_status')){
 	$name = $_POST['name'];
@@ -170,5 +198,44 @@ if($_POST['name'] == 'note') {
 	}
 }
 
+//single portfolio amount//
+if($_POST['name'] == 'amount') {
+	$name = $_POST['name'];
+	$id=$_POST['pk'];
+    $value=$_POST['value'];
+    $result=mysqli_query($conn, "UPDATE single_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
+    if($result){
+		echo "success";
+	}else{
+		echo mysqli_error($conn);
+	}
+}
+
+//double portfolio amount//
+if(($_POST['name'] == 'double_min_amt') Or ($_POST['name']=='double_max_amt')){
+	$name = $_POST['name'];
+	$id=$_POST['pk'];
+    $value=$_POST['value'];
+	$table=$_POST['table'];
+    $result=mysqli_query($conn, "UPDATE double_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
+    if($result){
+		echo "success";
+	}else{
+		echo mysqli_error($conn);
+	}
+}
+
+//full portfolio amount//
+if(($_POST['name'] == 'full_min_amt') Or ($_POST['name']=='full_max_amt')){
+	$name = $_POST['name'];
+	$id=$_POST['pk'];
+    $value=$_POST['value'];
+    $result=mysqli_query($conn, "UPDATE full_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
+    if($result){
+		echo "success";
+	}else{
+		echo mysqli_error($conn);
+	}
+}
 
 ?>

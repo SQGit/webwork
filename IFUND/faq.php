@@ -105,7 +105,7 @@ else
         </div>
     </nav>
     <?php
-	$query = "select * from faq";
+	$query = "select * from faq_page";
 	$result = mysqli_query($conn, $query); 
 	$record = mysqli_fetch_array($result);
 	?>
@@ -130,8 +130,8 @@ else
         <div class="container">
             <div class="row">
                 <div class="container">
-                    <div class="row">
-                        <h3 class="text-center mb20">How can we help you?</h3>
+                    <div class="row" style="text-align:center";>
+                        <h3 class="text-center mb20">How can we help you?<br/><hr class="heading-solid"/></h3>
 							
 							<div class="col-md-7 col-md-offset-2 col">
 							<input type="text" class="form-control" id="searchquery" name="search" placeholder="Search FAQs">

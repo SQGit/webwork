@@ -49,7 +49,7 @@ $row = mysqli_fetch_array($result) or die(mysqli_error());
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 pt50">
-                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><a href="#" class="inlineedit color-white" data-name="contact_main_title" data-type="text" data-pk="<?php echo $row['contact_id'] ?>" data-url="pjtlstupdate.php"><?php echo $row['contact_main_title']?></a></h1>
+                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><a href="#" class="inlineedit color-white" data-name="contact_main_title" data-type="text" data-pk="<?php echo $row['contact_id'] ?>" data-url="pjtlstupdate.php"><?php echo $row['contact_main_title']?></a><small class="color-light alpha7"><a href="#" class="inlineedit color-white" data-name="contact_sub_title" data-type="text" data-pk="<?php echo $row['contact_id'] ?>" data-url="pjtlstupdate.php"><?php echo $row['contact_sub_title'] ?></a></small></h1>
                     </div>
                 </div>
             </div>
@@ -121,14 +121,7 @@ $row = mysqli_fetch_array($result) or die(mysqli_error());
             </div>
         </div>
     </div>
-	
-<!--	<div class="pt75 pb75" style="background:url(assets/img/bg/img-bg-13.jpg) 50% 0 no-repeat;">
-        <h1 class="font-pacifico text-center color-light"> Your Question Unlisted?</h1>
-        <h5 class="text-center color-light"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, libero, temporibus quam eaque<br>numquam debitis excepturi assumenda necessitatibus dolore dolorum vero enim distinctio ipsa.</h5>
-        <p class="text-center"> <a class="button-3d button-md button-pasific">Submit Ticket Now</a>
-        </p>
-    </div> -->
-	
+		
 	 <?php
     include '../includes/footer.php';
     ?>

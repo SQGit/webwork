@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])=="admin")
 	header("location: ../pic_user.php"); // Redirecting To Other Page
 }
 include '../includes/db_config.php';
-$query = "select * from partners";
+$query = "select * from partner_page";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,7 @@ $query = "select * from partners";
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 pt50">
-                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><a href="#" class="inlineedit color-white" data-name="partner_main_title" data-type="text" data-pk="<?php echo $record['partners_id'] ?>" data-url="pjtlstupdate.php"><?php echo $record['partner_main_title']?></a></h1>
+                        <h1 class="brand-heading font-montserrat text-uppercase color-light" data-in-effect="fadeInDown"><a href="#" class="inlineedit color-white" data-name="partner_main_title" data-type="text" data-pk="<?php echo $record['id'] ?>" data-url="pjtlstupdate.php"><?php echo $record['partner_main_title']?></a> <small class="color-light alpha7"><a href="#" class="inlineedit color-white" data-name="partner_sub_title" data-type="text" data-pk="<?php echo $record['id'] ?>" data-url="pjtlstupdate.php"><?php echo $record['partner_sub_title'] ?></a></small></h1>
                     </div>
                 </div>
             </div>
@@ -67,6 +67,7 @@ $query = "select * from partners";
         <ul class="nav nav-pills nav-stacked partner">
 		
 		<?php
+		$query = "select * from partners";
 		$result = mysqli_query($conn, $query); 
 		$i=0;
 		while($record = mysqli_fetch_array($result))

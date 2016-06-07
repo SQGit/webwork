@@ -1843,56 +1843,20 @@ table th.bg-danger, table th.bg-default, table th.bg-info, table th.bg-pasific, 
 	background-size: cover
 }
 .carousel .carousel-inner .carousel-img1 {
-	background-image: url(../../../assets/img/bg/img-bg-17.jpg);
+	background-image: url(../../../assets/img/bg/main_carousel_1.jpg);
 	background-position: center top
 }
 .carousel .carousel-inner .carousel-img2 {
-	background-image: url(../../../assets/img/bg/img-bg-22.jpg);
+	background-image: url(../../../assets/img/bg/main_carousel_2.jpg);
 	background-position: center center
 }
 .carousel .carousel-inner .carousel-img3 {
-	background-image: url(../../../assets/img/bg/img-bg-21.jpg);
-	background-position: center bottom
-}
-.carousel .carousel-inner .carousel-img4 {
-	background-image: url(../../../assets/img/bg/img-bg-20.jpg);
-	background-position: center top
-}
-.carousel .carousel-inner .carousel-img5 {
-	background-image: url(../../../assets/img/bg/img-bg-18.jpg);
-	background-position: center center
-}
-.carousel .carousel-inner .carousel-img6 {
-	background-image: url(../../../assets/img/bg/img-bg-19.jpg);
-	background-position: center bottom
-}
-.carousel .carousel-inner .carousel-img7 {
-	background-image: url(../../../assets/img/bg/img-bg-23.jpg);
-	background-position: center top
-}
-.carousel .carousel-inner .carousel-img8 {
-	background-image: url(../../../assets/img/bg/img-bg-12.jpg);
-	background-position: center center
-}
-.carousel .carousel-inner .carousel-img9 {
-	background-image: url(../../../assets/img/bg/img-bg-16.jpg);
-	background-position: center bottom
-}
-.carousel .carousel-inner .carousel-img10 {
-	background-image: url(../../../assets/img/bg/img-bg-24.jpg);
-	background-position: center top
-}
-.carousel .carousel-inner .carousel-img11 {
-	background-image: url(../../../assets/img/bg/img-bg-13.jpg);
-	background-position: center center
-}
-.carousel .carousel-inner .carousel-img12 {
-	background-image: url(../../../assets/img/bg/img-bg-25.jpg);
+	background-image: url(../../../assets/img/bg/main_carousel_3.jpg);
 	background-position: center bottom
 }
 .carousel-caption h1 {
-	font-size: 35px;
-	line-height: 60px
+	font-size: 30px;
+	line-height: 50px
 }
 .carousel-caption p {
 	font-size: 18px
@@ -8179,4 +8143,8 @@ input[type="checkbox"].center{
 
 #tab-1 {
  display: block;   
+}
+
+hr{
+	color: #0070bc;
 }

@@ -259,32 +259,38 @@ function enable_project(id) {
 }
 
 //enable disable fund requirement//
-$('#projects input[type="checkbox"]').click(function(e) {
-    if($('#projects').children().find('input[type="checkbox"]:checked').length <= 3) {
-        
-		var $check = $(this);
-		var name = $(this).data("name");
-		var pk = $(this).data("pk");	
-		
-		if($check.prop('checked')) {  
-			var value = 1;
-		} else {
-			var value = 0;
-		}
-		
-		$.ajax({
-		type: "POST",
-		url: "getadmin.php",
-		data: 'action=funding_required&name='+name+'&pk='+pk+'&value='+value,
-		cache: false,
-		success: function(text) {                        
-			projects();
-			} //end success
-		}); //end ajax
-		
-    }else{		
-		e.preventDefault();	
-	}
+ $(function () {
+		$("#fund_project").multiselect({
+		//includeSelectAllOption: true,
+			buttonClass: "btn-primary btn-lg",
+			numberDisplayed: 4,				
+		});
+		$("#project_selected").click(function () {
+			
+			if ($("#fund_project option:selected").length > 3) {
+				alert ("Please select only 3 projects");
+			} else if ($("#fund_project option:selected").length < 3) {
+				alert ("You must select 3 projects");
+			}else if ($("#fund_project option:selected").length = 3){
+				
+				var fundproject = new FormData($('#fund_req_project')[0]);
+				//alert (fundproject);					
+				fundproject.append('action', 'fund_req_project');
+				
+			$.ajax({
+				url: "getadmin.php",
+				type: "POST",
+				data: fundproject,
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function (htmldata) {
+					//alert("hi");
+					projects();
+				}
+			});
+			}
+		});
 });
 
 
@@ -857,4 +863,17 @@ function transection_details() {
     });
 }
 
+function port_amount_details(){
+	
+	   $.ajax({
+        type: "POST",
+        dataType: "html",
+        url: "getadmin.php",
+        data: 'action=port_amount_details',
+        cache: false,
+        success: function (htmldata) {
 
+			$("#data_fetch").html(htmldata);
+        }
+    });
+}
