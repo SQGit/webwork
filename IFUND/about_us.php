@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($result) or die(mysqli_error());
         <div class="loader-item"> <img src="assets/img/other/puff.svg" alt="page loader">
         </div>
     </div>
-    <nav class="navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
+    <nav class="index navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
@@ -131,14 +131,14 @@ else
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <h3 class="mt5"><?php echo $row['about_section']?><small class="heading heading-solid"></small></h3>
-                    <p><?php echo $row['about_section_desc']?></p>
+                    <p style="text-align:justify;"><?php echo $row['about_section_desc']?></p>
                 </div>
             </div>
 			
 			<div class="row pt50">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <h3><?php echo $row['about_section1']?><small class="heading heading-solid"></small></h3>
-                    <p><?php echo $row['about_section_desc1']?></p>
+                    <p style="text-align:justify;"><?php echo $row['about_section_desc1']?></p>
                 </div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
                     <img src="assets/img/other/<?php echo $row['about_section_image1']?>" alt="about us" class="img-responsive center-block">

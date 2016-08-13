@@ -78,7 +78,7 @@ if(isset($_SESSION['username']))
                                             <p class="text-muted small mb10 text-lowercase"><?php echo $_SESSION['inv_email']; ?></p>
                                             <div class="divider">
                                             </div>
-                                            <a href="userprofile.php" class="btn btn-primary btn-sm active">View Profile</a>
+                                            <a href="userprofile.php" class="btn btn-primary btn-sm active" style="color:#fff!important;">View Profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@ else
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" class="center"/>
 	</div>
 	<div class="col-md-9 col-sm-9 pull-center">
-		<img class="center"  height="50" width="80%" src="assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="80%" src="assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}
@@ -257,7 +257,7 @@ else
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" class="center"/>		
 	</div>
 	<div class="col-md-9 col-sm-9 pull-center">				
-		<img class="center"  height="50" width="80%" src="assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="80%" src="assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}?>
@@ -273,8 +273,8 @@ else
 	$query5 = "SELECT * FROM double_port";
 	$result5 = mysqli_query($conn, $query5);
 	$row5=mysqli_fetch_assoc($result5);
-		echo '<input type="hidden" id="double_min" name="double_min" value="'.$row5['double_min_amt'].'"/>';
-		echo '<input type="hidden" id="double_max" name="double_max" value="'.$row5['double_max_amt'].'"/>';
+		echo '<input type="hidden" id="double_min" name="double_min" value="'.$row5['min_amt'].'"/>';
+		echo '<input type="hidden" id="double_max" name="double_max" value="'.$row5['max_amt'].'"/>';
 		echo '<p class="fs-14">$'.$row5['min_amt'].' - $'.$row5['max_amt'].'</p>';
 	mysqli_free_result($result5);
 	?>
@@ -310,7 +310,7 @@ else
 	echo '<div class="row ml0 mr0 mt20 mb20 pt10 pb10">	
 	<div class="col-md-11 col-sm-11">
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" checked="true" style="display:none;" />
-		<img class="center"  height="50" width="55%" src="assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="55%" src="assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}
@@ -324,8 +324,8 @@ else
 	$query6 = "SELECT * FROM full_port";
 	$result6 = mysqli_query($conn, $query6);
 	$row6=mysqli_fetch_assoc($result6);
-		echo '<input type="hidden" id="full_min" name="full_min" value="'.$row6['full_min_amt'].'"/>';
-		echo '<input type="hidden" id="full_max" name="full_max" value="'.$row6['full_max_amt'].'"/>';
+		echo '<input type="hidden" id="full_min" name="full_min" value="'.$row6['min_amt'].'"/>';
+		echo '<input type="hidden" id="full_max" name="full_max" value="'.$row6['max_amt'].'"/>';
 		echo '<p class="fs-14">$'.$row6['min_amt'].' - $'.$row6['max_amt'].'</p>';
 	mysqli_free_result($result6);
 	?>
@@ -353,7 +353,7 @@ else
 	while($row1 = mysqli_fetch_assoc($result1))
 	{
 	echo '<div><a href="#tab-'.$row1['project_id'].'"><div class="col-md-11 col-sm-11 bg-violet border-black brdr-full_1 m15 pt20 pb20">
-	<img class="center" src="assets/img/'.$row1['pjt_payment_logo'].'"  width="65%" alt=""/>
+	<img class="center" src="assets/img/other/'.$row1['project_logo'].'"  width="65%" alt=""/>
 	<h5 class="text-center">'.$row1['project_category'].'</h5>	
 	</div></a></div>';
 	}?>
@@ -368,7 +368,7 @@ else
 	
 	{	
 	echo'<div id="tab-'.$row1['project_id'].'" class="tab-content1"><div class="col-md-12 col-sm-12 pt20 pb20">
-	<img class="center" src="assets/img/'.$row1['pjt_payment_logo'].'"  width="40%" alt=""/>
+	<img class="center" src="assets/img/other/'.$row1['project_logo'].'"  width="40%" alt=""/>
 	</div>
 	<div class="col-md-12 col-sm-12 text-center">
 	<h4 style="font-size:20px; font-weight:800;">Investment Fund Pool</h4>

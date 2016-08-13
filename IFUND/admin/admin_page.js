@@ -863,17 +863,4 @@ function transection_details() {
     });
 }
 
-function port_amount_details(){
-	
-	   $.ajax({
-        type: "POST",
-        dataType: "html",
-        url: "getadmin.php",
-        data: 'action=port_amount_details',
-        cache: false,
-        success: function (htmldata) {
 
-			$("#data_fetch").html(htmldata);
-        }
-    });
-}

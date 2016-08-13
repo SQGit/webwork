@@ -14,6 +14,20 @@ a, a:focus, a:hover {
 	color: #111;
 	outline: 0
 }
+
+.owl-item a, a:focus, a:hover {
+	color: #111!important;
+	outline: 0
+}
+
+.owl-item a.button, a.button, a.button {
+    color: #fff !important;   
+}
+
+ a.button:focus, a.button:hover {
+    color: #8cc63f !important;   
+}
+
 #pageloader, body, html {
 	height: 100%
 }
@@ -95,7 +109,7 @@ code {
 }
 p {
 	font-family: 'Open Sans', sans-serif!important;
-	margin: 0 0 25px;
+	margin: 25px 0 25px;
 	font-size: 13px
 }
 p strong {
@@ -166,7 +180,7 @@ a {
 	font-weight: 200!important
 }
 .font-size-normal {
-	font-weight: 300!important
+	font-weight: 400!important
 }
 .font-size-bold {
 	font-weight: 400!important
@@ -469,7 +483,7 @@ ul.no-icon-list li {
 	color: #fff
 }
 .panel-heading {
-	padding: 10px 15px;
+	padding: 20px 15px;
 	font-size: 13px!important;
 	cursor: pointer
 }
@@ -1577,9 +1591,9 @@ table, table th {
 }
 .tab-content .tab-pane {
 	display: none;
-	background-color: #fff;
+	background-color: #eee;
 	padding-top: 20px;
-	overflow-y: auto
+	overflow: hidden;
 }
 .tab-content .active {
 	display: block
@@ -1927,7 +1941,7 @@ table th.bg-danger, table th.bg-default, table th.bg-info, table th.bg-pasific, 
 	transition: background .5s ease-in-out, padding .5s ease-in-out
 }
 .navbar-pasific .navbar-brand {
-	color: #fff;
+	color: #555;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
 	text-transform:uppercase;
@@ -7724,6 +7738,25 @@ transform:translateX(-1px) rotate(0)
 	margin-top: 20px;
 }
 
+.pjt_cover_img{	
+	padding:10px;
+}
+
+.pjt_cover_img img{	
+	border-radius:5px;
+}
+
+.pjt_logo_img{		
+	padding:10px;
+}
+
+.pjt_logo_img img{
+	height: 70px;
+    margin: 0 auto;
+    max-width: 75%;
+    width: 75%;
+}
+
 .mm_cont
 {
 	width:100%;
@@ -7816,14 +7849,6 @@ input[type=range]:first-of-type {
 
 .font-black{
 	color:#000 !important;
-}
-
-.tab-pane img{
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-	margin-bottom: 50px;
-	
 }
 
 .partner  > li > a:hover,.partner > li > a:active, .partner> li.active > a{
@@ -8073,7 +8098,7 @@ color:#999;
 .portfolio_border{
 	border:1px solid #ccc; 
 	border-radius:5px;
-	min-height:500px;
+	/*min-height:500px;*/
 	max-height:auto;
 }
 
@@ -8147,4 +8172,424 @@ input[type="checkbox"].center{
 
 hr{
 	color: #0070bc;
+}
+.carousel-caption .quot{
+	margin-top:80px;
+}
+
+#welcome h1 {
+	font-size: 26px;
+	color:#666;
+	
+}
+
+#welcome h1 small {
+	font-size: 28px;
+	margin-bottom:5px;
+}
+
+.status{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.status .col.circle{
+	margin-left:5px;
+	border-radius:100px; 
+	background:#eee;
+	padding:15px;
+	width:75px;
+	height:75px;	
+}
+/*
+.status .col{
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+}*/
+
+.status .name{
+	color:#363636;
+	font-size:13px;
+	font-weight:bold;
+}
+
+.name.persent{
+	font-size:18px;
+	font-weight:bold;
+}
+
+.status .value{
+	color:#1ca634;
+	font-size:14px;
+}
+
+.border-bottom{
+	border-bottom:2px solid #eee;
+}
+
+.status1.address{
+	margin:20px;
+	font-size:14px;
+	text-align:right;
+	vertical-align:middle;
+}
+
+.status1.address i{
+	color:green;
+}
+.status1.address div{
+	padding:0px;
+}
+
+.status2  .fund-period{
+	padding-top:10px;
+	padding-bottom:10px;
+	background:#eee;
+	border-radius:0 0 5px 5px; 
+}
+
+.text-right{
+	text-align:right;
+}
+
+@media (max-width:640px) {
+
+.carousel-caption h1 {
+	font-size: 14px;	
+}	
+
+.carousel-caption .button-md{
+	padding:8px 16px;
+}
+
+.carousel-caption .quot{
+	margin-top:10px;
+	font-size:11px;
+}
+
+.carousel-caption.text-small h1{
+	font-size:12px
+}
+
+.carousel-caption.text-small .button-md{
+	margin-top:3px!important;
+}
+
+.navbar-pasific .navbar-brand {
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 21px;
+	text-transform:uppercase;
+}
+
+#welcome h1 {
+    color: #666;
+    font-size: 20px;
+	line-height:24px;
+}
+
+#welcome h1 small {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+}
+
+@media (max-width:980px) {
+.status .col.circle{
+	margin-left:15px;
+	margin-right:15px;
+	border-radius:100px; 
+	background:#eee;
+	padding:15px;
+	width:auto;
+	height:75px;	
+}
+
+.status >.border-top{
+	margin:10px;
+	padding-top:10px;
+	border-top:1px solid #eee;
+}
+	
+}
+
+.fund-period sup {
+    font-size: 10px;
+}
+
+.navbar-mp .navbar-nav li a {
+    color: #555 !important;
+}
+
+#testimonial.inner .pjt_logo_img{
+	background:#fff;		
+	padding:5px 0 ;
+	margin:0 10px 10px;
+}
+
+.color-black{
+	color:#000;
+}
+
+.intro-body img{
+	margin:0 auto;
+	height:70px;
+	width:250px;
+}
+
+.tab-pane .row1, .tab-pane .row2, .tab-pane .row3, .tab-pane .row4, .tab-pane .row5, .tab-pane .row6, .tab-pane .row7{
+	height:400px;
+	margin-top: 100px;
+}
+
+.tab-pane .row1{
+	margin-top:25px;
+}
+
+.tab-pane .img1{
+	height:400px;
+	width:100%;
+}
+
+.tab-pane .img2{
+	display: block;
+	height:120px;
+	width:150px;
+	margin-top:-20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab-pane .img3{
+	height:400px;
+	/*width:100%;*/
+	position:absolute;
+	right:-40px;
+}
+
+.row2, .row3, .row4, .row5, .row6, .row7{
+	background-color: #e4edfb;
+}
+
+.tab-pane .img5{
+	display: block;
+	height:100px;
+	width:100px;
+	margin-top:-15px;
+}
+
+.tab-pane .img6{
+	height:350px;
+	width:100%;
+	position:absolute;
+	right:-40px;
+}
+
+.tab-pane .img7{
+	height:400px;
+	position: absolute;
+	right: 0px;
+}
+
+.tab-pane .img8{
+	display: block;
+	height:120px;
+	width:250px;
+	margin-top:-10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab-pane .img9{
+	height:350px;
+	width:100%;
+	position:absolute;
+	right:-40px;
+}
+
+.tab-pane .img10-1{
+	height:400px;
+	position:absolute;
+	display: inline;
+	z-index: 0;
+}
+
+.tab-pane .img10-2{
+	height:500px;
+	position:relative;
+	bottom:48px;
+	left:192px;
+	display: inline;
+	z-index: 1;
+}
+.tab-pane .img10-3{
+	height:400px;
+	position:absolute;
+	left:445px;
+	display: inline;
+	z-index: 0;
+}
+.tab-pane .img11{
+	display: block;
+	height:120px;
+	width:150px;
+	margin-top:-35px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab-pane .img12{
+	height:500px;
+	position:relative;
+	width:100%;
+	bottom:48px;
+	display: inline;
+	z-index: 0;
+}
+
+.tab-pane .img15{
+	height:500px;
+	position:relative;
+	bottom:48px;
+	left:13px;
+	display: inline;
+	z-index: 0;
+}
+
+.tab-pane .img13, .tab-pane .img14{
+	display: block;
+	height:200px;
+	width:250px;
+	margin-top:50px;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab-pane .img17, .tab-pane .img19{
+	display: block;
+	height:140px;
+	width:200px;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.team-members img{
+	border-radius: 100px;
+}
+
+.pjt_advantage{
+
+}
+
+.pjt_advantage p{
+	font-size: 17px;
+	margin:0px;
+}
+
+.pjt_advantage h4{
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.solution p{
+	margin:0px;
+	font-size:15px;
+}
+
+.problem ul{
+	margin-top:20px;
+}
+
+.problem ul li{
+	list-style-type: none;
+	font-size:15px;
+}
+
+.problem p{
+	margin-top:20px;
+	font-size:15px;
+}
+
+.vision {
+	background-color: #fff;
+	margin:15px;
+}
+
+.vision p{
+	font-size:15px;
+}
+
+.problem{
+	background-color: #fff;
+	margin:15px;
+}
+
+.solution{
+	background-color: #fff;
+	margin:15px;
+}
+
+.problem{
+	background-color: #fff;
+	margin:15px;
+}
+
+.competitions{
+	background-color: #fff;
+	margin:15px;
+}
+
+.pjt_advantage{
+	background-color: #fff;
+	margin:15px;
+}
+
+.vision, .problem, .solution, .competitions, .pjt_advantage{
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.team{
+	background-color: #fff!important;
+}
+
+.team .team_intro p{
+	color:#282828;
+	font-size: 14px;
+}
+
+.team-members h4 small{
+	color:#555;
+}
+
+.startup{
+	background-color: #fff!important;
+}
+
+.index.navbar li a{
+	color:#fff!important;
+}
+
+.index.navbar.top-nav-collapse li a{
+	color:#000;
+}
+
+.index .navbar-brand{
+	color:#fff;
+}
+
+.index.top-nav-collapse .navbar-brand{
+	color:#000;
+}
+
+.index.navbar .navbar-footer-content a{
+	color:#000!important;
+}
+
+.profile{
+	color:#fff!important;
 }

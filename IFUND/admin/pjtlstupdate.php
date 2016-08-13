@@ -198,44 +198,5 @@ if($_POST['name'] == 'note') {
 	}
 }
 
-//single portfolio amount//
-if($_POST['name'] == 'amount') {
-	$name = $_POST['name'];
-	$id=$_POST['pk'];
-    $value=$_POST['value'];
-    $result=mysqli_query($conn, "UPDATE single_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
-    if($result){
-		echo "success";
-	}else{
-		echo mysqli_error($conn);
-	}
-}
-
-//double portfolio amount//
-if(($_POST['name'] == 'double_min_amt') Or ($_POST['name']=='double_max_amt')){
-	$name = $_POST['name'];
-	$id=$_POST['pk'];
-    $value=$_POST['value'];
-	$table=$_POST['table'];
-    $result=mysqli_query($conn, "UPDATE double_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
-    if($result){
-		echo "success";
-	}else{
-		echo mysqli_error($conn);
-	}
-}
-
-//full portfolio amount//
-if(($_POST['name'] == 'full_min_amt') Or ($_POST['name']=='full_max_amt')){
-	$name = $_POST['name'];
-	$id=$_POST['pk'];
-    $value=$_POST['value'];
-    $result=mysqli_query($conn, "UPDATE full_port SET ".$name." = '".$value."' WHERE id='$id'") or die(mysqli_error($conn)); 
-    if($result){
-		echo "success";
-	}else{
-		echo mysqli_error($conn);
-	}
-}
 
 ?>

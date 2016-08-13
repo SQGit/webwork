@@ -1,0 +1,16 @@
+{
+  "transport": "ftp",
+  "uploadOnSave": false,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "50.62.160.249",
+  "port": "21",
+  "target": "/passafaila.com/yscrow/",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "passafaila",
+  "password": "qh3xF7!1",
+  "watch": []
+}

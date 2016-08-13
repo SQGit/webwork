@@ -43,7 +43,7 @@ $result = mysqli_query($conn, $query);
         <div class="loader-item"> <img src="assets/img/other/puff.svg" alt="page loader">
         </div>
     </div>
-    <nav class="navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
+    <nav class="index navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
@@ -75,7 +75,7 @@ if(isset($_SESSION['username']))
                                             <p class="text-muted small mb10 text-lowercase"><?php echo $_SESSION['inv_email']; ?></p>
                                             <div class="divider">
                                             </div>
-                                            <a href="userprofile.php" class="btn btn-primary btn-sm active">View Profile</a>
+                                            <a href="userprofile.php" class="btn btn-primary btn-sm active" style="color:#fff!important;">View Profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,20 +196,19 @@ else
     <?php
 	include 'includes/header-carousel.php';
 	?>
-    <div id="welcome" class="pt75">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1 class="font-size-normal"> <small>Welcome to iFund Network</small> Connecting Investors for Investing <small class="heading heading-solid center-block"></small></h1>
-                </div>
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <p> <span class="lead"><strong>Ifundnetwork is a seed and early stage invite only private investor firm, currently we are focused on investing in startup with Novel ideas and outstanding technology innovations. Presently operating in the following locations, Houston, Texas, Lagos Nigeria, and Chennai India </strong></span>
-                        <br>
-                    </p>
-                </div>
-            </div>
-        </div>
+<div id="welcome" class="pt25">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="font-size-normal"> <small>Welcome to ifundnetwork</small> Funding High- Impact Innovations Of The Future. <small class="heading heading-solid center-block"></small></h1>
+      </div>
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <p> <span class="lead"><strong>The ifundnetwork is a seed and early-stage invite only private investors platform. Currently we are focused on investing in startup with Novel  ideas and outstanding technological innovations. We are presently operating in the following locations, Houston Texas, Chennai India, and Lagos Nigeria</strong></span><br>
+        </p>
+      </div>
     </div>
+  </div>
+</div>
 	
 <div id="testimonial" class="pt75 pb25">
         <div class="container">
@@ -222,13 +221,68 @@ while($record = mysqli_fetch_assoc($result))
 {
 	echo
 		'<a href="ifindcard.php?id='.$record['project_id'].'"><div class="ml15 mr15 portfolio_border">
-        <div class="animated pt15" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
+        <div class="animated pjt_cover_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_cover'].'" alt="website service" class="img-responsive"></div>
+		<div class="animated pjt_logo_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
         <div class="animated" data-animation="fadeIn" data-animation-delay="100">
 		<h3 class="font-size-normal text-center pt5 pb5 ml0 mr0 portfolio_bg2"> <small class="color-primary pb10">Category</small> '.$record['project_category'].'</h3>
 		<p class="mt20 pl10 pr10">'.$record['project_desc_short'].'</p>
 		<h3 class="font-size-normal text-center mb0 pb10 pt10 portfolio_bg3"> <small class="color-primary pb15">Seed Stage Funding Goal</small>$ '.$record['project_fund_goal'].'</h3>									
+		</div>';?>
+		<?php 
+			$persent = 0;
+			$amt_total = $record['project_fund_goal'];
+			$amt_invested = $record['project_amt_invested'];
+			$persent = round(($amt_invested / $amt_total)*100);
+			if($persent > 100){
+				$persent = 100;
+			}
+		?>
+		<div class="row mt5 mb5">
+			<div class="col-md-12 text-center">
+				<div class="pBar" data-from="0" data-to="<?php echo $persent; ?>" data-color="#20bf3c"></div>
+			</div>
 		</div>
-		</div></a>';		
+		<div class="row status">
+			<div class="col-md-3 text-center col">
+				<div class="text-center col circle">
+					<span class="name persent"><?php echo $persent; ?>% <br/></span><span class="value">Funded</span>
+				</div>
+			</div>
+			<div class="col-md-4 text-center col border-top">
+				<div class="text-center col">
+					<span class="name">Project&nbsp;&nbsp;Status</span> <br/> <span class="value">Development Stage</span>
+				</div>
+			</div>
+			<div class="col-md-5 text-center col border-top">
+				<span class="name">Done</span> <br/> <span class="value">UI/UX <br/> Patent Provisional <br/> Development Team</span>
+			</div>
+		</div>
+		<div class="border-bottom"></div>
+		<div class="row status1 address">
+			<div class="col-xs-4 text-center">
+				<span style="position:absolute; left:-20px; top:-21px;"><img src="assets/img/location.png" alt="location"></span> <?php echo $record['location_city']; ?>
+			</div>
+			<div class="col-xs-4 text-center">
+				<?php echo $record['location_state']; ?>
+			</div>
+			<div class="col-xs-4 text-center">
+				<?php echo $record['location_country']; ?>.
+			</div>
+		</div>
+		<div class="row status2">
+			<div class="col-sm-12 text-center">
+			<div class="fund-period">
+			<?php 
+			$from = $record['project_fund_period_from'];
+			$to = $record['project_fund_period_to'];
+			?>
+				Funding  Period  <?php echo date("F j<\s\up>S</\s\up>", strtotime($from)); ?> – <?php echo date("F j<\s\up>S</\s\up>", strtotime($to)); ?>
+				<!--Funding  Period  <?php echo date("F j<\s\up>S</\s\up> , Y", strtotime($from)); ?> – <?php echo date("F j<\s\up>S</\s\up> , Y", strtotime($to)); ?>-->
+			</div>
+			</div>
+		</div>
+		<?php 
+		echo '</div></a>';		
 }
 mysqli_free_result($result);
 ?>
@@ -301,7 +355,7 @@ mysqli_free_result($result);
         </div>
     </div> -->
     
-    <div id="footer" class="footer-two pt20">
+    <div id="footer" class="footer-two">
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -327,6 +381,7 @@ mysqli_free_result($result);
     <script src="assets/js/main/owl.carousel.min.js"></script>
     <script src="assets/js/main/owl.carousel.min.js"></script>
     <script src="assets/js/main/ion.rangeSlider.min.js"></script>
+	<script src="assets/js/jquery.pBar.js"></script>
     <script src="assets/js/main/main.js"></script>
 </body>
 

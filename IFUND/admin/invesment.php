@@ -42,7 +42,11 @@ $msg=$_GET['msg'];
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar" data-offset="100">
-    <div id="pageloader">
+<?php
+include '../includes/pageloader.php';
+include '../includes/navbar.php';
+?>
+	<!--<div id="pageloader">
         <div class="loader-item"> <img src="../assets/img/other/puff.svg" alt="page loader">
         </div>
     </div>
@@ -113,7 +117,7 @@ else
 } ?>
             </div>
         </div>
-    </nav>
+    </nav>-->
 
 	<header class="pt100 pb100 parallax-window-2" data-parallax="scroll" data-speed="0.5" data-image-src="../assets/img/bg/investment.jpg" data-positionY="1000">
         <div class="intro-body text-center">
@@ -174,7 +178,7 @@ else
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" class="center"/>
 	</div>
 	<div class="col-md-9 col-sm-9 pull-center">
-		<img class="center"  height="50" width="80%" src="../assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="80%" src="../assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}
@@ -248,7 +252,7 @@ else
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" class="center"/>		
 	</div>
 	<div class="col-md-9 col-sm-9 pull-center">				
-		<img class="center"  height="50" width="80%" src="../assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="80%" src="../assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}?>
@@ -301,7 +305,7 @@ else
 	echo '<div class="row ml0 mr0 mt20 mb20 pt10 pb10">	
 	<div class="col-md-11 col-sm-11">
 		<input type="checkbox" value="'.$row1['project_name'].'" name="sp[]" checked="true" style="display:none;" />
-		<img class="center"  height="50" width="55%" src="../assets/img/'.$row1['pjt_payment_logo'].'"  width="" alt=""/>
+		<img class="center"  height="50" width="55%" src="../assets/img/other/'.$row1['project_logo'].'"  width="" alt=""/>
 	</div>
 	</div>';
 	}
@@ -344,7 +348,7 @@ else
 	while($row1 = mysqli_fetch_assoc($result1))
 	{
 	echo '<div><a href="#tab-'.$row1['project_id'].'"><div class="col-md-11 col-sm-11 bg-violet border-black brdr-full_1 m15 pt20 pb20">
-	<img class="center" src="../assets/img/'.$row1['pjt_payment_logo'].'"  width="65%" alt=""/>
+	<img class="center" src="../assets/img/other/'.$row1['project_logo'].'"  width="65%" alt=""/>
 	<h5 class="text-center">'.$row1['project_category'].'</h5>	
 	</div></a></div>';
 	}?>
@@ -359,7 +363,7 @@ else
 	
 	{	
 	echo'<div id="tab-'.$row1['project_id'].'" class="tab-content1"><div class="col-md-12 col-sm-12 pt20 pb20">
-	<img class="center" src="../assets/img/'.$row1['pjt_payment_logo'].'"  width="40%" alt=""/>
+	<img class="center" src="../assets/img/other/'.$row1['project_logo'].'"  width="40%" alt=""/>
 	</div>
 	<div class="col-md-12 col-sm-12 text-center">
 	<h4 style="font-size:20px; font-weight:800;">Investment Fund Pool</h4>

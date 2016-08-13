@@ -62,14 +62,6 @@ $email = ($_POST["email"]);
 $country = ($_POST["country"]);
 $phone = ($_POST["phone"]);
 
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
 $EmailTo = "$email";
 $Subject = "Your Investor Code";
 $pic = uniqid();
@@ -413,11 +405,11 @@ if ($_POST['action'] && $_POST['action'] == "add_edit_project_UI") {
                            <input type="file" id="project_logo" name="image" placeholder="Select Your Project Logo here..">             
                         </div>-->
                         <div class="col-lg-8">
-                            <div class="fileupload fileupload-new" name="image" id="image" data-provides="fileupload">
+                            <div class="fileupload fileupload-new" name="image1" id="image1" data-provides="fileupload">
                     <span class="btn btn-file btn-default">
                         <span class="fileupload-new">Select file</span>
                         <span class="fileupload-exists">Change</span>
-                        <input type="file" name="image" id="image"/>
+                        <input type="file" name="image1" id="image1"/>
                     </span>
                                 <span class="fileupload-preview"></span>
                                 <a href="#" class="close fileupload-exists" data-dismiss="fileupload"
@@ -425,6 +417,26 @@ if ($_POST['action'] && $_POST['action'] == "add_edit_project_UI") {
                             </div>
                         </div>
                     </div>
+					
+					<div class="form-group">
+                        <label class="control-label col-sm-2" for="project_payment_logo">Project Logo payment page</label>
+                        <!--<div class="col-sm-10">
+                           <input type="file" id="project_logo" name="image" placeholder="Select Your Project Logo here..">             
+                        </div>-->
+                        <div class="col-lg-8">
+                            <div class="fileupload fileupload-new" name="image2" id="image2" data-provides="fileupload">
+                    <span class="btn btn-file btn-default">
+                        <span class="fileupload-new">Select file</span>
+                        <span class="fileupload-exists">Change</span>
+                        <input type="file" name="image2" id="image2"/>
+                    </span>
+                                <span class="fileupload-preview"></span>
+                                <a href="#" class="close fileupload-exists" data-dismiss="fileupload"
+                                   style="float: none">×</a>
+                            </div>
+                        </div>
+                    </div>
+					
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="project_Category">Project Category</label>
                         <div class="col-sm-10">
@@ -434,6 +446,7 @@ if ($_POST['action'] && $_POST['action'] == "add_edit_project_UI") {
                                    } ?>" placeholder="Enter Your Project Category here..">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="project_fund_goal">Project Fund Goal</label>
                         <div class="col-sm-10">
@@ -581,37 +594,59 @@ if ($_POST['action'] && $_POST['action'] == "add_edit_project_UI") {
 //add and update or edit project start//
 if($_POST['action'] && ($_POST['action']=="add_project") || ($_POST['action']=="edit_project")){
 
-$logo = '';
-$project_name = ($_POST["project_name"]);
-$project_Category = ($_POST["project_Category"]);
-$project_fund_goal = ($_POST["project_fund_goal"]);
-$project_amt_invested = ($_POST["project_amt_invested"]);
-$project_fund_pool = ($_POST["project_fund_pool"]);
-$project_angels = ($_POST["project_angels"]);
-$project_fund_period_from = ($_POST["project_fund_period_from"]);
-$project_fund_period_to = ($_POST["project_fund_period_to"]);
-$project_video = ($_POST["project_video"]);
-$project_short_desc = ($_POST['project_short_desc']);
-$project_vision = ($_POST["project_vision"]);
-$project_problem = ($_POST['project_problem']);
-$project_solution_video = ($_POST["project_solution_video"]);
-$project_advantage = ($_POST["project_advantage"]);
-$project_other_details = ($_POST["project_other_details"]);
-$logofile = $_FILES['image']['name'];
-$tmp_dir = $_FILES['image']['tmp_name'];
-$logosize = $_FILES['image']['size'];
+$pjt_logo = '';
+$pjt_payment_logo='';
+$project_name = mysqli_real_escape_string($conn, $_POST["project_name"]);
+$project_Category = mysqli_real_escape_string($conn, $_POST["project_Category"]);
+$project_fund_goal = mysqli_real_escape_string($conn, $_POST["project_fund_goal"]);
+$project_amt_invested = mysqli_real_escape_string($conn, $_POST["project_amt_invested"]);
+$project_fund_pool = mysqli_real_escape_string($conn, $_POST["project_fund_pool"]);
+$project_angels = mysqli_real_escape_string($conn, $_POST["project_angels"]);
+$project_fund_period_from = mysqli_real_escape_string($conn, $_POST["project_fund_period_from"]);
+$project_fund_period_to = mysqli_real_escape_string($conn, $_POST["project_fund_period_to"]);
+$project_video = mysqli_real_escape_string($conn, $_POST["project_video"]);
+$project_short_desc = mysqli_real_escape_string($conn, $_POST['project_short_desc']);
+$project_vision = mysqli_real_escape_string($conn, $_POST["project_vision"]);
+$project_problem = mysqli_real_escape_string($conn, $_POST['project_problem']);
+$project_solution_video = mysqli_real_escape_string($conn, $_POST["project_solution_video"]);
+$project_advantage = mysqli_real_escape_string($conn, $_POST["project_advantage"]);
+$project_other_details = mysqli_real_escape_string($conn, $_POST["project_other_details"]);
+$logofile = $_FILES['image1']['name'];
+$tmp_dir = $_FILES['image1']['tmp_name'];
+$logosize = $_FILES['image1']['size'];
+$logofile1 = $_FILES['image2']['name'];
+$tmp_dir1 = $_FILES['image2']['tmp_name'];
+$logosize1 = $_FILES['image2']['size'];
 
 
 if (!empty($logofile)) {
     $upload_dir = '../assets/img/';
     $imgExt = strtolower(pathinfo($logofile, PATHINFO_EXTENSION));
     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
-    $logo = rand(1000, 1000000) . "." . $imgExt;
+    $pjt_logo = rand(1000, 1000000) . "." . $imgExt;
 
     if (in_array($imgExt, $valid_extensions)) {
 
         if ($logosize < 5000000) {
-            move_uploaded_file($tmp_dir, $upload_dir . $logo);
+            move_uploaded_file($tmp_dir, $upload_dir . $pjt_logo);
+        } else {
+            $errMSG = "Sorry, your file is too large.";
+        }
+    } else {
+        $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    }
+}
+
+if (!empty($logofile1)) {
+    $upload_dir = '../assets/img/';
+    $imgExt = strtolower(pathinfo($logofile1, PATHINFO_EXTENSION));
+    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
+    $pjt_payment_logo = rand(1000, 1000000) . "." . $imgExt;
+
+    if (in_array($imgExt, $valid_extensions)) {
+		
+        if ($logosize < 5000000) {
+            move_uploaded_file($tmp_dir, $upload_dir . $pjt_payment_logo);
         } else {
             $errMSG = "Sorry, your file is too large.";
         }
@@ -624,11 +659,11 @@ if (!isset($errMSG)) {
 
     if ($_POST['action'] == 'add_project') {
 
-        $query = "INSERT INTO project_list (project_name, project_Category, project_fund_goal, project_amt_invested, project_fund_pool, project_angels, project_fund_period_from, project_fund_period_to, project_video, project_desc_short, project_vision, project_problem, project_solution_video, project_advantage, project_other_details, project_logo) VALUES ('$project_name','$project_Category','$project_fund_goal','$project_amt_invested','$project_fund_pool','$project_angels','$project_fund_period_from','$project_fund_period_to','$project_video','$project_short_desc','$project_vision','$project_problem','$project_solution_video', '$project_advantage', '$project_other_details','$logo')";
+        $query = "INSERT INTO project_list (project_name, project_Category, project_fund_goal, project_amt_invested, project_fund_pool, project_angels, project_fund_period_from, project_fund_period_to, project_video, project_desc_short, project_vision, project_problem, project_solution_video, project_advantage, project_other_details, project_logo, pjt_payment_logo) VALUES ('$project_name','$project_Category','$project_fund_goal','$project_amt_invested','$project_fund_pool','$project_angels','$project_fund_period_from','$project_fund_period_to','$project_video','$project_short_desc','$project_vision','$project_problem','$project_solution_video', '$project_advantage', '$project_other_details','$pjt_logo', '$pjt_payment_logo')";
 
     } else if ($_POST['action'] == 'edit_project') {
         $project_id = ($_POST["project_id"]);
-        $query = "UPDATE  project_list SET project_name = '$project_name', project_Category = '$project_Category', project_fund_goal = '$project_fund_goal', project_amt_invested = '$project_amt_invested', project_fund_pool = '$project_fund_pool', project_angels = '$project_angels', project_fund_period_from = '$project_fund_period_from', project_fund_period_to = '$project_fund_period_to', project_video = '$project_video', project_desc_short = '$project_short_desc', project_vision = '$project_vision', project_problem = '$project_problem', project_solution_video = '$project_solution_video', project_advantage = '$project_advantage', project_other_details = '$project_other_details', project_logo = '$logo' WHERE project_id=$project_id";
+        $query = "UPDATE  project_list SET project_name = '$project_name', project_Category = '$project_Category', project_fund_goal = '$project_fund_goal', project_amt_invested = '$project_amt_invested', project_fund_pool = '$project_fund_pool', project_angels = '$project_angels', project_fund_period_from = '$project_fund_period_from', project_fund_period_to = '$project_fund_period_to', project_video = '$project_video', project_desc_short = '$project_short_desc', project_vision = '$project_vision', project_problem = '$project_problem', project_solution_video = '$project_solution_video', project_advantage = '$project_advantage', project_other_details = '$project_other_details', project_logo = '$pjt_logo', pjt_payment_logo = '$pjt_payment_logo' WHERE project_id=$project_id";
     }
 
     if (mysqli_query($conn, $query)) {
@@ -938,10 +973,10 @@ if($_POST['action'] && $_POST['action']=="add_edit_member_UI")
 if($_POST['action'] && ($_POST['action']=="add_member") || ($_POST['action']=="edit_member")){
 
 $image = 'dummy.jpg';
-$member_name = ($_POST["team_member_name"]);
-$member_profession = ($_POST["team_member_profession"]);
-$member_intro = ($_POST["team_member_intro"]);
-$project_id = ($_POST["project_name"]);
+$member_name = mysqli_real_escape_string($conn, $_POST["team_member_name"]);
+$member_profession =mysqli_real_escape_string($conn, $_POST["team_member_profession"]);
+$member_intro = mysqli_real_escape_string($conn, $_POST["team_member_intro"]);
+$project_id = mysqli_real_escape_string($conn, $_POST["project_name"]);
 $imagefile = $_FILES['image']['name'];
 $tmp_dir = $_FILES['image']['tmp_name'];
 $imagesize = $_FILES['image']['size'];
@@ -1154,10 +1189,10 @@ if($_POST['action'] && $_POST['action']=="add_edit_partner_UI")
 //add edit partners start//
 if($_POST['action'] && ($_POST['action']=="add_partner") || ($_POST['action']=="edit_partner")){
 $image = '';
-$partner_name = ($_POST["partner_name"]);
-$partner_profession = ($_POST["partner_profession"]);
-$partner_country = ($_POST["partner_country"]);
-$partner_intro = ($_POST["partner_intro"]);
+$partner_name = mysqli_real_escape_string($conn, $_POST["partner_name"]);
+$partner_profession = mysqli_real_escape_string($conn, $_POST["partner_profession"]);
+$partner_country = mysqli_real_escape_string($conn, $_POST["partner_country"]);
+$partner_intro = mysqli_real_escape_string($conn, $_POST["partner_intro"]);
 $imagefile = $_FILES['image']['name'];
 $tmp_dir = $_FILES['image']['tmp_name'];
 $imagesize = $_FILES['image']['size'];
@@ -1386,9 +1421,9 @@ if ($_POST['action'] && $_POST['action'] == "add_edit_competitors_UI") {
 //add edit compititors srart//
 if($_POST['action'] && ($_POST['action']=="add_competitor") || ($_POST['action']=="edit_competitor")){
 $image = 'placeholder.jpg';
-$competitor_name = ($_POST["competitor_name"]);
-$competitor_intro = ($_POST["competitor_intro"]);
-$project_id = ($_POST["project_name"]);
+$competitor_name = mysqli_real_escape_string($conn, $_POST["competitor_name"]);
+$competitor_intro = mysqli_real_escape_string($conn, $_POST["competitor_intro"]);
+$project_id = mysqli_real_escape_string($conn, $_POST["project_name"]);
 $imagefile = $_FILES['image']['name'];
 $tmp_dir = $_FILES['image']['tmp_name'];
 $imagesize = $_FILES['image']['size'];

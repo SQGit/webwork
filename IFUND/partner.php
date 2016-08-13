@@ -37,7 +37,7 @@ $query = "select * from partner_page";
         <div class="loader-item"> <img src="assets/img/other/puff.svg" alt="page loader">
         </div>
     </div>
-    <nav class="navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
+    <nav class="index navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>

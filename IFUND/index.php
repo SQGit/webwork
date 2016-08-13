@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $query);
         <div class="loader-item"> <img src="assets/img/other/puff.svg" alt="page loader">
         </div>
     </div>
-    <nav class="navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
+    <nav class="index navbar navbar-pasific navbar-mp megamenu navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
@@ -225,14 +225,14 @@ $result = mysqli_query($conn, $query);
 	?>
     <!-- welcome start -->
 
-<div id="welcome" class="pt75">
+<div id="welcome" class="pt25">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="font-size-normal"> <small>Welcome to iFund Network</small> Connecting Investors for Investing <small class="heading heading-solid center-block"></small></h1>
+        <h1 class="font-size-normal"> <small>Welcome to ifundnetwork</small> Funding High- Impact Innovations Of The Future. <small class="heading heading-solid center-block"></small></h1>
       </div>
       <div class="col-md-8 col-md-offset-2 text-center">
-        <p> <span class="lead"><strong>Ifundnetwork is a seed and early stage invite only private investor firm, currently we are focused on investing in startup with Novel ideas and outstanding technology innovations. Presently operating in the following locations, Houston, Texas, Lagos Nigeria, and Chennai India </strong></span><br>
+        <p> <span class="lead"><strong>The ifundnetwork is a seed and early-stage invite only private investors platform. Currently we are focused on investing in startup with Novel  ideas and outstanding technological innovations. We are presently operating in the following locations, Houston Texas, Chennai India, and Lagos Nigeria</strong></span><br>
         </p>
       </div>
     </div>
@@ -247,12 +247,13 @@ $result = mysqli_query($conn, $query);
                         <div id="owlSectionThreeItem" class="owl-carousel">
 <?php
 while($record = mysqli_fetch_assoc($result))
-{
+{	
 	echo	
 		'<div class="ml15 mr15 portfolio_border" data-toggle="modal" data-target="#loginModal">
-        <div class="animated pt15" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
+        <div class="animated pjt_cover_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_cover'].'" alt="website service" class="img-responsive"></div>
+		<div class="animated pjt_logo_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
         <div class="animated" data-animation="fadeIn" data-animation-delay="100">
-		<h3 class="font-size-normal text-center pt5 pb5 ml0 mr0 portfolio_bg2"> <small class="color-primary pb10">Category</small> '.$record['project_category'].'</h3>
+		<h3 class="font-size-normal text-center pt5 pb5 mt5 ml0 mr0 portfolio_bg2"> <small class="color-primary pb10">Category</small> '.$record['project_category'].'</h3>
 		<p class="mt20 pl10 pr10">'.$record['project_desc_short'].'</p>
 		<h3 class="font-size-normal text-center mb0 pb10 pt10 portfolio_bg3"> <small class="color-primary pb15">Seed Stage Funding Goal</small>$ '.$record['project_fund_goal'].'</h3>									
 		</div>
@@ -294,17 +295,17 @@ mysqli_free_result($result);
                             <h1 class="font-size-normal color-light"> <small class="color-light">Contact Us</small> Drop Us a Message</h1>
                             <h5 class="color-light">Please feel free to say anything to us. Our staff will reply any message<br>as soon as possible.</h5>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12"> <span class="icon-map color-light el-icon2x"></span>
+                        <div class="col-md-5 col-sm-5 col-xs-12"> <span class="icon-map color-light el-icon2x"></span>
                             <h5 class="color-light"><strong>Address</strong></h5>
-                            <p class="color-light">Address has to be updated</p>
+                            <p class="color-light">5800 Ranchester Dr<br/>Suite 168 Houston Texas 77036</p>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6"> <span class="icon-megaphone color-light el-icon2x"></span>
+                        <div class="col-md-3 col-sm-3 col-xs-12"> <span class="icon-megaphone color-light el-icon2x"></span>
                             <h5 class="color-light"><strong>Phone</strong></h5>
-                            <p class="color-light">123-456-789</p>
+                            <p class="color-light">832-356-3971</p>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6"> <span class="icon-envelope color-light el-icon2x"></span>
+                        <div class="col-md-4 col-sm-4 col-xs-12"> <span class="icon-envelope color-light el-icon2x"></span>
                             <h5 class="color-light"><strong>Email</strong></h5>
-                            <p class="color-light">email@domain.com</p>
+                            <p class="color-light">info@ifundnetwork.com<br/>info@ifindcard.com</p>
                         </div>
                     </div>
                 </div>
@@ -382,6 +383,7 @@ mysqli_free_result($result);
     <script src="assets/js/main/owl.carousel.min.js"></script>
     <script src="assets/js/main/owl.carousel.min.js"></script>
     <script src="assets/js/main/ion.rangeSlider.min.js"></script>
+	<script src="assets/js/jquery.pBar.js"></script>
     <script src="assets/js/main/main.js"></script>
 </body>
 

@@ -70,7 +70,6 @@ include '../includes/navbar.php';
 						<li><a><i class="fa fa-edit"></i> Investments <span class="fa fa-chevron-down"></span></a>
                             <ul style="display: none;" class="nav child_menu">                                
                                 <li><a href="#" onclick="transection_details()">Transaction Details</a></li>
-								<li><a href="#" onclick="port_amount_details()">Portfolio Amount Manage</a></li>
                             </ul>
                         </li>
                     </ul>

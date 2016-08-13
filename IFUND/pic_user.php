@@ -86,20 +86,19 @@ $result = mysqli_query($conn, $query);
 	//header carousel
 	include 'includes/header-carousel.php';
 	?>
-    <div id="welcome" class="pt75">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1 class="font-size-normal"> <small>Welcome to iFund Network</small> Connecting Investors for Investing <small class="heading heading-solid center-block"></small></h1>
-                </div>
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <p> <span class="lead"><strong>Ifundnetwork is a seed and early stage invite only private investor firm, currently we are focused on investing in startup with Novel ideas and outstanding technology innovations. Presently operating in the following locations, Houston, Texas, Lagos Nigeria, and Chennai India </strong></span>
-                        <br>
-                    </p>
-                </div>
-            </div>
-        </div>
+<div id="welcome" class="pt25">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="font-size-normal"> <small>Welcome to ifundnetwork</small> Funding High- Impact Innovations Of The Future. <small class="heading heading-solid center-block"></small></h1>
+      </div>
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <p> <span class="lead"><strong>The ifundnetwork is a seed and early-stage invite only private investors platform. Currently we are focused on investing in startup with Novel  ideas and outstanding technological innovations. We are presently operating in the following locations, Houston Texas, Chennai India, and Lagos Nigeria</strong></span><br>
+        </p>
+      </div>
     </div>
+  </div>
+</div>
     
 <div id="testimonial" class="pt75 pb25">
         <div class="container">
@@ -112,9 +111,10 @@ while($record = mysqli_fetch_assoc($result))
 {
 	echo
 		'<div class="ml15 mr15 portfolio_border" data-toggle="modal" data-target="#loginModal">
-        <div class="animated pt15" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
+        <div class="animated pjt_cover_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_cover'].'" alt="website service" class="img-responsive"></div>
+		<div class="animated pjt_logo_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>
         <div class="animated" data-animation="fadeIn" data-animation-delay="100">
-		<h3 class="font-size-normal text-center pt5 pb5 ml0 mr0 portfolio_bg2"> <small class="color-primary pb10">Category</small> '.$record['project_category'].'</h3>
+		<h3 class="font-size-normal text-center pt5 pb5 mt5 ml0 mr0 portfolio_bg2"> <small class="color-primary pb10">Category</small> '.$record['project_category'].'</h3>
 		<p class="mt20 pl10 pr10">'.$record['project_desc_short'].'</p>
 		<h3 class="font-size-normal text-center mb0 pb10 pt10 portfolio_bg3"> <small class="color-primary pb15">Seed Stage Funding Goal</small>$ '.$record['project_fund_goal'].'</h3>									
 		</div>
