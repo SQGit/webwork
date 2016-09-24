@@ -126,22 +126,34 @@ else
     <div id="about" class="pt75 pb50">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <img src="assets/img/other/<?php echo $row['about_section_image']?>" alt="about us" class="img-responsive center-block">
+                <div class="col-md-12 text-center mb25">
+                    <h3 class="mt5"><?php echo $row['about_section']?></h3>
+                    <hr class="center">
+                    <p class="mt10"  style="font-size:125%;">The ifundnetwork is a global invite only private startup funding platform</p>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <h3 class="mt5"><?php echo $row['about_section']?><small class="heading heading-solid"></small></h3>
-                    <p style="text-align:justify;"><?php echo $row['about_section_desc']?></p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <img src="assets/img/other/<?php echo $row['about_section_image']?>" alt="about us" class="img-responsive img-thumbnail center-block">
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12">                    
+                    <p style="text-align:justify;" class="mt5"><?php echo $row['about_section_desc']?></p>
                 </div>
             </div>
 			
-			<div class="row pt50">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <h3><?php echo $row['about_section1']?><small class="heading heading-solid"></small></h3>
-                    <p style="text-align:justify;"><?php echo $row['about_section_desc1']?></p>
+			<div class="row pt50">             
+                <div class="col-md-12 text-center mb25">
+                    <h3 class="mt5"><?php echo $row['about_section1']?></h3>
+                    <hr class="center">
+                    <p class="mt10" style="font-size:125%;">The ifundnetwork is a global invite only private startup funding platform</p>
                 </div>
-				<div class="col-md-6 col-sm-6 col-xs-12">
-                    <img src="assets/img/other/<?php echo $row['about_section_image1']?>" alt="about us" class="img-responsive center-block">
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">                    
+                    <p style="text-align:justify;" class="mt5"><?php echo $row['about_section_desc1']?></p>
+                </div>
+				<div class="col-md-4 col-sm-4 col-xs-12">
+                    <img src="assets/img/other/<?php echo $row['about_section_image1']?>" alt="about us" class="img-responsive img-thumbnail center-block">
                 </div>
             </div>
         </div>

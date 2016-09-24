@@ -134,8 +134,8 @@ mysqli_free_result($result);
         <div class="container">
             <div class="row pt75">
                 <div class="col-md-12 text-center">
-                    <h1 class="color-light"> <small class="color-light">The best way to be success</small> Are you ready to be join as Investor?</h1>
-                    <a href="#" data-toggle="modal" data-target="#regformmodal" class="button button-md button-pasific hover-ripple-out mt25">Join now</a> <a href="contact_us.php" class="button-o button-md button-green hover-fade mt25"><span class="color-light">Contact Us</span></a>
+                    <h2 class="color-light color-light">Join Our Community of High Profile Investors Today</h2>
+                    <a href="#" data-toggle="modal" data-target="#regformmodal" class="button button-md button-pasific hover-ripple-out mt25">CLICK HERE</a>
                 </div>
             </div>
         </div>

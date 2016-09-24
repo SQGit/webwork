@@ -26,7 +26,18 @@ if($num_rows >0 ){
 			$_SESSION["inv_id"] = $pic; //Initializing Session
 			$_SESSION["inv_email"] = $email; //Initializing Session
 			//header("location: pic_user.php"); // Redirecting To Other Page
-			echo "success";	
+			
+			$EmailTo = $email;
+			$Subject = "ifundnetwork registration";
+			$femail = "investors@ifindcard.com";
+
+			$Body = "Hi \n Thankyou for visiting ifundnetwork. \n Now You can see the ifundnetwork projects and You can also invest if you are interested. \n Let's Create ifundnetwork account invest for your projects..";
+
+			if ($success = mail($EmailTo, $Subject, $Body, "From:" . $femail)) {
+            	echo "success";
+        	} else {
+            	echo "Error";
+        	}
 		}
 		else
 		{
@@ -43,7 +54,17 @@ if($num_rows >0 ){
 			$_SESSION["inv_id"] = $pic; //Initializing Session
 			$_SESSION["inv_email"] = $email; //Initializing Session
 			//header("location: pic_user.php"); // Redirecting To Other Page
-			echo "success";	
+			$EmailTo = $email;
+			$Subject = "ifundnetwork registration";
+			$femail = "investors@ifindcard.com";
+
+			$Body = "Hi \n Thankyou for visiting ifundnetwork. \n Now You can see the ifundnetwork projects and You can also invest if you are interested. \n Let's Create ifundnetwork account invest for your projects..";
+
+			if ($success = mail($EmailTo, $Subject, $Body, "From:" . $femail)) {
+            	echo "success";
+        	} else {
+            	echo "Error";
+        	}
 		}
 		else
 		{

@@ -73,6 +73,7 @@ if (!empty($name) || !empty($email) || !empty($phone) || !empty($country)) {
 		else
 		{
 			echo "<span class=\"error\">Sorry.. Error occured.. Please try again.</span>";
+           // echo mysqli_error($conn);
 		}
     
 	mysqli_close($conn);

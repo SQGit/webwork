@@ -266,7 +266,7 @@ while($record = mysqli_fetch_assoc($result))
 				<?php echo $record['location_state']; ?>
 			</div>
 			<div class="col-xs-4 text-center">
-				<?php echo $record['location_country']; ?>.
+				<?php echo $record['location_country']; ?>
 			</div>
 		</div>
 		<div class="row status2">

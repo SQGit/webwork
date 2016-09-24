@@ -122,7 +122,7 @@ while($record = mysqli_fetch_assoc($result))
 				<?php echo $record['location_state']; ?>
 			</div>
 			<div class="col-xs-4">
-				<?php echo $record['location_country']; ?>.
+				<?php echo $record['location_country']; ?>
 			</div>
 		</div>
 		<div class="row status2">
@@ -153,8 +153,8 @@ mysqli_free_result($result);
         <div class="container">
             <div class="row pt75">
                 <div class="col-md-12 text-center">
-                    <h1 class="color-light"> <small class="color-light">The best way to be success</small> Are you ready to be join as Investor?</h1>
-                    
+                    <h2 class="color-light color-light">Join Our Community of High Profile Investors Today</h2>
+                    <a href="#" class="button button-md button-pasific hover-ripple-out mt25">CLICK HERE</a>                    
                 </div>
             </div>
         </div>

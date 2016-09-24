@@ -29,9 +29,11 @@ $p_id = $_GET['id'];
     <link rel="stylesheet" href="assets/css/magnific/magic.min.css">
     <link rel="stylesheet" href="assets/css/magnific/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/magnific/magnific-popup-zoom-gallery.css">
-    <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
     <link rel="stylesheet" href="assets/css/owl-carousel/owl.transitions.css">
+    <link rel="stylesheet" href="assets/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="assets/css/nivo_themes/default.css">
     <link rel="stylesheet" href="assets/css/color/pasific.css">
     <link rel="stylesheet" href="assets/css/icon/font-awesome.css">
     <link rel="stylesheet" href="assets/css/icon/et-line-font.css">
@@ -133,10 +135,10 @@ $result1 = mysqli_query($conn, $query1);
 while($record = mysqli_fetch_assoc($result1))
 {   
     echo    
-        '<div class="ml15 mr15 portfolio_border" style="background-color:#eee;">
+        '<a href="ifindcard.php?id='.$record['project_id'].'"><div class="ml15 mr15 portfolio_border" style="background-color:#eee;">
         <div class="animated pjt_cover_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_cover'].'" alt="website service" class="img-responsive"></div>
         <div class="animated pjt_logo_img" data-animation="fadeInLeft" data-animation-delay="100"> <img src="assets/img/other/'.$record['project_logo'].'" alt="website service" class="img-responsive"></div>        
-        </div>';        
+        </div></a>';        
 }
 mysqli_free_result($result1);
 ?>
@@ -265,7 +267,7 @@ mysqli_free_result($result1);
                     <p>The document am about to view is a confidential property of ifindcard Inc and is intended only for my investment purposes in the platform</p>
                     <input type="checkbox">
                     <label>I agree to the terms & Condition</label>
-                    <div class="text-center mt20 mb20"><a class="button button-md button-pasific hover-ripple-out mt25" href="invesment.php">Submit</a></div>
+                    <div class="text-center mt20 mb20"><a class="button button-md button-pasific hover-ripple-out mt25" href="#">Submit</a></div>
                 </div>
             </div>
         </div>
@@ -287,171 +289,161 @@ mysqli_free_result($result1);
                         <li class=""><a href="#pilljustified4" data-toggle="pill">Highlights/ Research</a>
                         </li>
                     </ul>
-                    <div class="tab-content pb15">
-                        <!-- tab 1 -->
-                        <div class="tab-pane fade active in pt0 startup" id="pilljustifiedHome">
-                          <!-- row1 -->
-                          <div class="row row1">
-                            <div class="col-md-4">
-                                <img src="assets/img/inner/world map.jpg" alt="website service" class="img-responsive img1">
-                            </div>
-                            <div class="col-md-4">
-                                <h5 class="text-center">USER  CREATE  A PERSONALIZED BUSINESS NETWORKING PROFILE</h5>
-                                <p>The user will get a complete list of cards that are connected to him i.e. is in his network. The user can click on one of the card and see the profile for that particular user. Additionally, user can mark any of the connection as favourite and also do vice versa if user is already added to favourites.</p>
-                                <img src="assets/img/inner/ifindcard network logo.png" alt="website service" class="img-responsive img2">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="assets/img/inner/ifindcard 3rd party view.png" alt="website service" class="img3">
-                            </div>
-                          </div>
+<div class="tab-content pb15">
+<!-- tab 1 -->
+<?php
+$query = "select * from startup_tab WHERE project_id= $p_id";
+$result_startup = mysqli_query($conn, $query); 
+$row_startup = mysqli_fetch_array($result_startup) or die(mysqli_error());
+?>
+<div class="tab-pane fade active in pt0 startup" id="pilljustifiedHome">
+  <!-- row1 -->                        
+<div class="row">
+  <div class="col-md-12 text-center mb25">
+      <h3 class="mt5"><?php echo $row_startup['title1']?></h3>
+      <hr class="center">
+      <p class="mt10" style="font-size:125%;"><?php echo $row_startup['desc1']?></p>
+  </div>
+</div>
 
-                          <!-- row2 -->
-                          <div class="row row2">
-                            <div class="col-md-4">
-                                <div class="row" style="margin:0px;">
-                                    <img src="assets/img/inner/news feed.png" alt="website service" class="img-responsive img4">
-                                </div>
-                                <div class="row" style="background-color:#fff;margin:0px; padding-bottom:58px;">
-                                    <div class="col-sm-3">
-                                        <img src="assets/img/inner/ifindcard icon.png" alt="website service" class="img5">
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <h3 class="text-center">Business Feeds</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">                                
-                                    <h5 class="text-center">BUSINESS FEEDS EMPOWERS BOTH REGULAR  USER AND BUSINESSES  TO GENERATE BUSINESS LEADS AND MAKE MONEY FROM ADS</h5>
-                                    <p>The business feed will be provided by individual businesses, giving information about business and its product or services they offer. For products and services that are displayed there is an option to mark it as favourite and rate it accordingly.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="assets/img/inner/ifindcard business feed.png" alt="website service" class="img3">
-                            </div>
-                          </div>
+<section class="section2 deep-dark-bg" id="brief1">
+    <div class="row"> 
+      <!-- RIGHT SIDE WITH BRIEF -->
+      <div class="col-md-8 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s"> 
+        <!-- SECTION TITLE -->
+        <h3 class="white-text"><?php echo $row_startup['title2']?></h3>
+        <div class="colored-line-left"> </div>
+        <p><?php echo $row_startup['desc2']?></p>      
+      </div>
+      <!-- /END RIGHT BRIEF --> 
+      <!-- PHONES IMAGE -->
+      <div class="col-md-4 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
+        <div class="phone-image"> <img class="img-responsive" src="assets/img/<?php echo $row_startup['title2_img']?>" alt=""> </div>
+      </div>
+    </div>
+    <!-- /END ROW --> 
+</section>
+<!-- /END SECTION -->
 
-                          <!-- row3 -->
-                          <div class="row row3">
-                            <div class="col-md-4">
-                                <img src="assets/img/inner/event-networking-nametags.jpg" alt="website service" class="img7">
-                            </div>
-                            <div class="col-md-4">
-                                <h5 class="text-center">USER  CAN  CREATE  BOTH  FREE  &  PAID EVENTS AND  USEE THEIR BUSINESS CARD NETWORK TO  GENERATE AN INVITE  LIST</h5>
-                                <p>Ability to create an event, attend an event and donate to event, display events or better still see lists of events to attend or host. These can either be free events or paid events.</p>
-                                <img src="assets/img/inner/events icon.png" alt="website service" class="img-responsive img8">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="assets/img/inner/ifindcard events.png" alt="website service" class="img3">
-                            </div>
-                          </div>
+<section class="section1 deep-dark-bg" id="brief1">
+    <div class="row"> 
+      <!-- PHONES IMAGE -->
+      <div class="col-md-6 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
+        <div class="phone-image"> <img class="img-responsive" src="assets/img/<?php echo $row_startup['title3_img']?>" alt=""> </div>
+      </div>
+      <!-- RIGHT SIDE WITH BRIEF -->
+      <div class="col-md-6 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s"> 
+        <!-- SECTION TITLE -->
+        <h3 class="white-text"><?php echo $row_startup['title3']?></h3>
+        <div class="colored-line-left"> </div>
+        <p><?php echo $row_startup['desc3']?></p>
+      </div>
+      <!-- /END RIGHT BRIEF --> 
+    </div>
+    <!-- /END ROW --> 
+</section>
+<!-- /END SECTION --> 
 
-                          <!-- row4 -->
-                          <div class="row row4">
-                            <div class="col-md-7">
-                                <img src="assets/img/inner/nc1.png" alt="website service" class="img-responsive img10-1">
-                                <img src="assets/img/inner/nc2.png" alt="website service" class="img-responsive img10-2">
-                                <img src="assets/img/inner/nc1.png" alt="website service" class="img-responsive img10-3">
-                            </div>
-                            <div class="col-md-5" style="padding:0 35px 10px 0;">
-                                <h5 class="text-center">CREATE A PERSONALIZED  NETWORK CARD AND MULTIPLE INDEPENDENT  BUSINESS CARDS & ADVERTISE YOUR PRODUCT & SERVICES  ON  MOBILE </h5>
-                                <p>With this feature the user can create multiple independent business cards and also create a Network card in order to share his profile and work related experience this is a great tool for students and unemployed, User can quickly activate any of his card as at when he needs it and broadcast his business card/Network card to anyone using either their clamtag ID or their registered business phone number.</p>
-                                <img src="assets/img/inner/contact.png" alt="website service" class="img-responsive img11">
-                            </div>                            
-                          </div>
+<section class="section3 deep-dark-bg" id="brief1">
+    <div class="row"> 
+        <!-- RIGHT SIDE WITH BRIEF -->
+      <div class="col-md-6 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s"> 
+        <!-- SECTION TITLE -->
+        <h3 class="white-text"><?php echo $row_startup['title4']?></h3>
+        <div class="colored-line-left"> </div>
+        <p><?php echo $row_startup['desc4']?></p>
+      </div>
+      <!-- /END RIGHT BRIEF --> 
 
-                          <!-- row5 -->
-                          <div class="row row5">
-                            <div class="col-md-3">
-                                <img src="assets/img/inner/chat_mobile.png" alt="" class="img-responsive img12">
-                            </div>
-                            <div class="col-md-3" style="margin-top:20px;">
-                                <div>
-                                    <h5 class="text-center">Chat With Your Clients & Business Partners Via Their Digital Business Card</h5>
-                                </div>
-                                <div>
-                                    <img src="assets/img/inner/chat_online.jpg" alt="" class="img-responsive img13">
-                                </div>
-                            </div>
-                            <div class="col-md-3" style="margin-top:20px;">
-                                <div>
-                                    <h5 class="text-center">Create Appointments Via Your Digital Business Card Anytime, Anywhere</h5>
-                                </div>
-                                <div>
-                                    <img src="assets/img/inner/appoinment_card.png" alt="" class="img-responsive img14">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/inner/appoint_mobile.png" alt="" class="img-responsive img15">
-                            </div>
-                          </div>
+      <!-- PHONES IMAGE -->
+      <div class="col-md-6 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
+        <div class="phone-image"> <img class="img-responsive" src="assets/img/<?php echo $row_startup['title4_img']?>" alt=""> </div>
+      </div>      
+    </div>
+    <!-- /END ROW --> 
+</section>
+<!-- /END SECTION --> 
 
-                          <!-- row6 -->
-                          <div class="row row6">
-                            <div class="col-md-7">
-                                <img src="assets/img/inner/hire1.png" alt="website service" class="img-responsive img10-1">
-                                <img src="assets/img/inner/hire2.png" alt="website service" class="img-responsive img10-2">
-                                <img src="assets/img/inner/hire3.png" alt="website service" class="img-responsive img10-3">
-                            </div>
-                            <div class="col-md-5" style="padding:20px 50px;">
-                                <h5 class="text-center">User Can Hire Local  Artisan & High End professionals Directly From Their Mobile App </h5>
-                                <p>With the iHire feature a user has the capability to post a job displaying his requirements and see/review quotes from available local service providers as they so please</p>                                
-                            </div>                            
-                          </div>
+<!-- =========================
+     SCREENSHOTS
+============================== -->
+<section class="screenshots deep-dark-bg" id="screenshot-section">
+  <div class="container"> 
+    
+    <!-- SECTION HEADER -->
+    <div class="section-header wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s"> 
+      
+      <!-- SECTION TITLE -->
+      <h2 class="white-text"><?php echo $row_startup['title5']?></h2>
+      <div class="colored-line"> </div>
+      <div class="section-description"><?php echo $row_startup['desc5']?></div>
+      <div class="colored-line"> </div>
+    </div>
+    <!-- /END SECTION HEADER -->
+    
+<?php
+$query = "select * from gallery WHERE project_id= $p_id";
+$result_gallery = mysqli_query($conn, $query); 
+?>
 
-                          <!--row7 -->
-                          <div class="row row7">
-                            <div class="col-md-4">
-                                <div>
-                                    <img src="assets/img/inner/ifindscreen.png" alt="website service" class="img-responsive img16">
-                                </div>
-                                <div>
-                                    <img src="assets/img/inner/chart1.png" alt="website service" class="img-responsive img17">
-                                </div> 
-                            </div>
-                            <div class="col-md-4">
-                                <h4 class="text-center">ifindcard Business Manager</h4>
-                                <div>
-                                    <img src="assets/img/inner/ifind_monitor.png" alt="website service" class="img-responsive img18">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <h4 class="text-center">ifindcard Business Manager</h4>
-                                <p>Manage Your Products & Services Ads Create Free & Paid Events Schedule Appointment Create Targeted Campaign Ads View Daily Local Business Leads View Daily Analyticals Manage Associate Ads Accounts Automatically Update and share Your Most recent business/Network card Print Customized Business Card Generate Event Name Tags with !clamtag Ids</p>
-                                <img src="assets/img/inner/chart.png" alt="website service" class="img-responsive img19">
-                            </div>
-                          </div>
-                        </div>
+    <div class="row wow bounceIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+      <div id="screenshots" class="owl-carousel owl-theme">
+        <?php        
+        while($row_gallery = mysqli_fetch_assoc($result_gallery))
+        {
+        ?>
+        <div class="shot">
+            <a href="assets/img/<?php echo $row_gallery['img_path']?>" data-lightbox-gallery="screenshots-gallery"><img src="assets/img/<?php echo $row_gallery['img_path']?>" alt="Screenshot" class="img-responsive"></a>
+        </div>
+        
+        <?php
+        }
+        ?>
+      </div>
+      <!-- /END SCREENSHOTS --> 
+      
+    </div>
+    <!-- /END ROW --> 
+    
+  </div>
+  <!-- /END CONTAINER --> 
+  
+</section>
+<!-- /END SCREENSHOTS SECTION --> 
+
+</div><!--/.tab1 -->
 						
-                        <!-- tab 2 -->
-						<?php							
-							$query = "select * from team_page";
-							$result = mysqli_query($conn, $query); 
-							$row = mysqli_fetch_array($result) or die(mysqli_error());
-							?>
-                        <div class="tab-pane fade team" id="pilljustified1">
-                            <div class="row m0">
-						      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center team_intro">
-                                    <p><i><?php echo $row['team_short_intro']?></i></p>
-							  </div>
-							</div>
-							<?php mysqli_free_result($result); ?>
-							<?php
-							$query = "select * from team_members WHERE project_id= $p_id";
-							$result = mysqli_query($conn, $query); 
-							while($row = mysqli_fetch_array($result))
-							{ ?>
-							<div class="row mr0 ml0 mt25 bb-solid-1 team-members">
-                                <div class="col-md-3 col-sm-3"> <img class="center-block" alt="team" src="assets/img/team_members/<?php echo $row['team_member_photo']?>">
-                                <h4 class="font-montserrat text-center"> <span class="text-capitalize"><?php echo $row['team_member_name']?></span> <small class="text-uppercase"><?php echo $row['team_member_profession']?></small></h4>
-                                </div>
-                                <div class="col-md-5 col-sm-5">
-                                    <p class="pb25"><?php echo $row['team_member_intro']?></p>
-                                </div>
-                            </div>
-							<?php 
-							} 
-							mysqli_free_result($result);
-							?>							                            
-                        </div>
+<!-- tab 2 -->
+<?php							
+	$query = "select * from team_page";
+	$result = mysqli_query($conn, $query); 
+	$row = mysqli_fetch_array($result) or die(mysqli_error());
+	?>
+<div class="tab-pane fade team" id="pilljustified1">
+    <div class="row m0">
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center team_intro">
+            <p><i><?php echo $row['team_short_intro']?></i></p>
+	  </div>
+	</div>
+	<?php mysqli_free_result($result); ?>
+	<?php
+	$query = "select * from team_members WHERE project_id= $p_id";
+	$result = mysqli_query($conn, $query); 
+	while($row = mysqli_fetch_array($result))
+	{ ?>
+	<div class="row mr0 ml0 mt25 bb-solid-1 team-members">
+        <div class="col-md-3 col-sm-3"> <img class="center-block" alt="team" src="assets/img/team_members/<?php echo $row['team_member_photo']?>">
+            <h4 class="font-montserrat text-center"> <span class="text-capitalize"><?php echo $row['team_member_name']?></span> <small class="text-uppercase"><?php echo $row['team_member_profession']?></small></h4>
+        </div>
+        <div class="col-md-5 col-sm-5">
+            <p class="pb25"><?php echo $row['team_member_intro']?></p>
+        </div>
+    </div>
+	<?php 
+	} 
+	mysqli_free_result($result);
+	?>							                            
+</div>
                         <!-- tab 3 -->
 						<?php					
 							$query = "select * from documents WHERE project_id= $p_id";
@@ -506,7 +498,8 @@ mysqli_free_result($result1);
                             </div>
                             </div>							
                         </div>
-                        <!-- tab 4 -->
+
+                            <!-- tab 4 -->
 							<?php					
 							$query = "select * from funding WHERE project_id= $p_id";
 							$result = mysqli_query($conn, $query); 
@@ -561,6 +554,7 @@ mysqli_free_result($result1);
                             </div>
                             </div>							
                         </div>
+
                         <!-- tab 5 -->
                         <div class="tab-pane fade tab5" id="pilljustified4">						
                         <?php                   
@@ -625,28 +619,27 @@ mysqli_free_result($result1);
                                 </div>
                         </div>
 
+                        <?php                   
+                            $query = "select * from project_list WHERE project_id= $p_id";
+                            $result = mysqli_query($conn, $query); 
+                            $row = mysqli_fetch_array($result)
+                        ?>
                         <div id="testimonial" class="pt15 pb15 pjt_advantage">
-                            <h4 class="font-blue text-uppercase text-center" style="font-weight:bold;">IFINDCARD  ADVANTAGGE OVER COMPETITIONS </h4>
+                            <h4 class="font-blue text-uppercase text-center" style="font-weight:bold;"><?php echo $row['project_name']?>  ADVANTAGES OVER COMPETITIONS </h4>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="row">                                        
-                                        <?php                   
-                                        $query = "select * from project_list WHERE project_id= $p_id";
-                                        $result = mysqli_query($conn, $query); 
-                                        while($row = mysqli_fetch_array($result))
-                                        {                                   
-                                        ?>
                                         <div class="col-sm-12" style="margin-top:20px; margin-bottom:20px; text-align:center;">
                                             <?php echo $row['project_advantage']?>
                                         </div>
                                         <?php
-                                        }
                                         mysqli_free_result($result);
                                         ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -771,10 +764,68 @@ mysqli_free_result($result1);
     <script src="assets/js/main/isotope.pkgd.min.js"></script>
     <script src="assets/js/main/parallax.min.js"></script>
     <script src="assets/js/main/jquery.countTo.js"></script>
-    <script src="assets/js/main/owl.carousel.min.js"></script>
-    <script src="assets/js/main/owl.carousel.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/nivo-lightbox.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main/ion.rangeSlider.min.js"></script>
     <script src="assets/js/main/main.js"></script>
+
+<script type="text/javascript">
+  
+
+/* =================================
+===  WOW ANIMATION             ====
+=================================== */
+
+wow = new WOW(
+  {
+    mobile: false
+  });
+wow.init();
+
+
+/* =================================
+===  OWL CROUSEL               ====
+=================================== */
+$(document).ready(function () {
+
+    $("#feedbacks").owlCarousel({
+
+        navigation: false, // Show next and prev buttons
+        slideSpeed: 800,
+        paginationSpeed: 400,
+        autoPlay: 5000,
+        singleItem: true
+    });
+
+    var owl = $("#screenshots");
+
+    owl.owlCarousel({
+        items: 4, //10 items above 1000px browser width
+        itemsDesktop: [1000, 4], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 2], // betweem 900px and 601px
+        itemsTablet: [600, 1], //2 items between 600 and 0
+        itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
+    });
+
+
+});
+
+
+/* =================================
+===  Nivo Lightbox              ====
+=================================== */
+$(document).ready(function () {
+
+    $('#screenshots a').nivoLightbox({
+        effect: 'fadeScale',
+    });
+
+});
+
+
+</script>
+
 </body>
 
 </html>

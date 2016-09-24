@@ -65,36 +65,46 @@ include '../includes/navbar.php';
 <div id="about" class="pt75 pb50">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <img src="../assets/img/other/<?php echo $row['about_section_image'] ?>" alt="about us"
-                     class="img-responsive center-block">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-12 text-center mb25">
                 <h3 class="mt5"><a href="#" class="inlineedit" data-name="about_section" data-type="text"
                        data-pk="<?php echo $row['about_id'] ?>"
-                       data-url="pjtlstupdate.php"><?php echo $row['about_section'] ?></a>
-                    <small class="heading heading-solid"></small>
-                </h3>
-                <p><a href="#" class="inlineedit" data-name="about_section_desc" data-type="wysihtml5"
+                       data-url="pjtlstupdate.php"><?php echo $row['about_section'] ?></a></h3>
+                <hr class="center">
+                <p class="mt10"  style="font-size:125%;">The ifundnetwork is a global invite only private startup funding platform</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <img src="../assets/img/other/<?php echo $row['about_section_image'] ?>" alt="about us"
+                     class="img-responsive img-thumbnail center-block">
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">                
+                <p class="mt5"><a href="#" class="inlineedit" data-name="about_section_desc" data-type="wysihtml5"
                       data-pk="<?php echo $row['about_id'] ?>"
                       data-url="pjtlstupdate.php"><?php echo $row['about_section_desc'] ?></a></p>
             </div>
         </div>
 
         <div class="row pt50">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <h3><a href="#" class="inlineedit" data-name="about_section1" data-type="text"
+            <div class="col-md-12 text-center mb25">
+                    <h3><a href="#" class="inlineedit" data-name="about_section1" data-type="text"
                        data-pk="<?php echo $row['about_id'] ?>"
-                       data-url="pjtlstupdate.php"><?php echo $row['about_section1'] ?></a>
-                    <small class="heading heading-solid"></small>
-                </h3>
-                <p><a href="#" class="inlineedit" data-name="about_section_desc1" data-type="wysihtml5"
+                       data-url="pjtlstupdate.php"><?php echo $row['about_section1'] ?></a></h3>
+                    <hr class="center">
+                    <p class="mt10" style="font-size:125%;">The ifundnetwork is a global invite only private startup funding platform</p>
+                </div>
+            </div>
+
+            <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">                
+                <p class="mt5"><a href="#" class="inlineedit" data-name="about_section_desc1" data-type="wysihtml5"
                       data-pk="<?php echo $row['about_id'] ?>"
                       data-url="pjtlstupdate.php"><?php echo $row['about_section_desc1'] ?></a></p>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
                 <img src="../assets/img/other/<?php echo $row['about_section_image1'] ?>" alt="about us"
-                     class="img-responsive center-block">
+                     class="img-responsive img-thumbnail center-block">
             </div>
         </div>
     </div>

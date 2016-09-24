@@ -59,7 +59,7 @@ $result = mysqli_query($conn, $query);
             <div class="modal-content brdr_blue">
                 <div class="modal-body text-center">
                     <h4 class="sm_fnt_1"><span style="color:#f60; font-size:18px;"> Thank you for your Interest!!</span> <hr style="margin:10px 0;"> We will be contacting soon.</h4>
-                    <h4 class="sm_fnt">The funding period is open until May 31st 2016</h4>
+                    <h4 class="sm_fnt">The funding period is open..</h4>
                 </div>
             </div>
         </div>
@@ -268,16 +268,13 @@ mysqli_free_result($result);
     </div>
 </div>
 
-
-
-
     <!-- start-->
     <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="assets/img/bg/home_ready.jpg">
         <div class="container">
             <div class="row pt75">
                 <div class="col-md-12 text-center">
-                    <h1 class="color-light"> <small class="color-light">The best way to be success</small> Are you ready to be join as Investor?</h1>
-                    <a href="#" data-toggle="modal" data-target="#AccessInquiryModal" class="button button-md button-pasific hover-ripple-out mt25">Join now</a> <a href="#contact" class="button-o button-md button-green hover-fade mt25"><span class="color-light">Contact Us</span></a>
+                    <h2 class="color-light color-light">Join Our Community of High Profile Investors Today</h2>
+                    <a href="#" data-toggle="modal" data-target="#AccessInquiryModal" class="button button-md button-pasific hover-ripple-out mt25">CLICK HERE</a>
                 </div>
             </div>
         </div>

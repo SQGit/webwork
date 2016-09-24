@@ -29,7 +29,7 @@
 							<span id="uname-error" class="signup-error"></span>
 						</div>		
 						<div class="form-group">
-							<input type="email" class="form-control" name="remail" id="remail" value="<?php echo $_SESSION['inv_email']?>" placeholder="Email" disabled />
+							<input type="email" class="form-control" name="remail" id="remail" value="<?php echo $_SESSION['inv_email']?>" placeholder="Email" readonly />
 							<span id="email-error" class="signup-error"></span>
 						</div>
 						<div class="form-group">                            

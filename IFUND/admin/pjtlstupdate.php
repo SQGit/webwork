@@ -5,7 +5,7 @@ include '../includes/db_config.php';
 if(($_POST['name']=='project_category') Or ($_POST['name']=='project_fund_goal') Or ($_POST['name']=='project_desc_short') Or ($_POST['name']=='project_problem') Or ($_POST['name']=='project_vision') Or ($_POST['name']=='project_angels') Or ($_POST['name']=='	project_fund_pool') Or ($_POST['name']=='project_amt_invested') Or ($_POST['name']=='project_name') Or ($_POST['name']=='project_other_details') Or ($_POST['name']=='project_advantage') Or ($_POST['name']=='project_fund_period_from') Or ($_POST['name']=='project_fund_period_to')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM project_list WHERE project_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -18,7 +18,7 @@ if(($_POST['name']=='project_category') Or ($_POST['name']=='project_fund_goal')
 if(($_POST['name']=='about_section') Or ($_POST['name']=='about_section_desc') Or ($_POST['name']=='about_main_title') Or ($_POST['name']=='about_sub_title')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM about_us WHERE about_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -31,7 +31,7 @@ if(($_POST['name']=='about_section') Or ($_POST['name']=='about_section_desc') O
 if(($_POST['name']=='contact_address') Or ($_POST['name']=='contact_phone') Or ($_POST['name']=='contact_mail') Or ($_POST['name']=='contact_main_title') Or ($_POST['name']=='contact_sub_title')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM contact_us WHERE contact_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -44,7 +44,7 @@ if(($_POST['name']=='contact_address') Or ($_POST['name']=='contact_phone') Or (
 if(($_POST['name']=='faq_question') Or ($_POST['name']=='faq_ans')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM faq WHERE faq_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -57,7 +57,7 @@ if(($_POST['name']=='faq_question') Or ($_POST['name']=='faq_ans')){
 if(($_POST['name']=='faq_main_title') Or ($_POST['name']=='faq_sub_title')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM faq_page WHERE id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -70,7 +70,7 @@ if(($_POST['name']=='faq_main_title') Or ($_POST['name']=='faq_sub_title')){
 if(($_POST['name']=='competitor_name')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM competitors WHERE competitor_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -83,7 +83,7 @@ if(($_POST['name']=='competitor_name')){
 if(($_POST['name']=='team_short_intro') Or ($_POST['name']=='team_member_name') Or ($_POST['name']=='team_member_profession') Or ($_POST['name']=='team_member_intro')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM team WHERE team_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -96,7 +96,7 @@ if(($_POST['name']=='team_short_intro') Or ($_POST['name']=='team_member_name') 
 if(($_POST['name']=='funding_name') Or ($_POST['name']=='funding_document_path')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM funding WHERE fund_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -109,7 +109,7 @@ if(($_POST['name']=='funding_name') Or ($_POST['name']=='funding_document_path')
 if(($_POST['name']=='document_group_name') Or ($_POST['name']=='document_name') Or ($_POST['name']=='document_path')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM documents WHERE document_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -122,7 +122,7 @@ if(($_POST['name']=='document_group_name') Or ($_POST['name']=='document_name') 
 if(($_POST['name']=='partner_country') Or ($_POST['name']=='partner_profession') Or ($_POST['name']=='partner_desc')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM partners WHERE partners_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -135,7 +135,7 @@ if(($_POST['name']=='partner_country') Or ($_POST['name']=='partner_profession')
 if(($_POST['name']=='partner_sub_title') Or ($_POST['name']=='partner_main_title')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM partner_page WHERE id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -150,7 +150,7 @@ if(($_POST['name']=='partner_sub_title') Or ($_POST['name']=='partner_main_title
 if(($_POST['name']=='traction_name') Or ($_POST['name']=='traction_name_desc') Or ($_POST['name']=='traction_status')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM traction WHERE traction_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -163,7 +163,7 @@ if(($_POST['name']=='traction_name') Or ($_POST['name']=='traction_name_desc') O
 if(($_POST['name']=='testing_name') Or ($_POST['name']=='testing_name_desc') Or ($_POST['name']=='testing_status')){
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "SELECT COUNT(*) as count FROM testing WHERE testing_id=$id") or die(mysqli_error($conn));
     $count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -177,7 +177,7 @@ if(($_POST['name']=='testing_name') Or ($_POST['name']=='testing_name_desc') Or 
 if($_POST['name']=='country'){
 	$name = $_POST['name'];	
 	//$id=$_POST['pk'];
-    $value=$_POST['value'];   
+    $value=mysqli_real_escape_string($conn, $_POST['value']);   
 	$result=mysqli_query($conn, "SELECT COUNT(*) as count FROM country WHERE country='$value'") or die(mysqli_error($conn));
 	$count= mysqli_fetch_row($result);
     if($count[0]==0){
@@ -189,7 +189,7 @@ if($_POST['name']=='country'){
 if($_POST['name'] == 'note') {
 	$name = $_POST['name'];
 	$id=$_POST['pk'];
-    $value=$_POST['value'];
+    $value=mysqli_real_escape_string($conn, $_POST['value']);
     $result=mysqli_query($conn, "UPDATE transection_tbl SET ".$name." = '".$value."' WHERE txn_id='$id'") or die(mysqli_error($conn)); 
     if($result){
 		echo "success";
