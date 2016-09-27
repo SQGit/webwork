@@ -6,19 +6,20 @@
             <div class="modal-content pl25 pr25">
                 <div class="modal-header brdr-none">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <div class="text-center text-uppercase m15 letter-space-05" style="font-size:18px; color:#3a403e;">ACH Transfer Info</div>
+                    <div class="text-center text-uppercase m15 letter-space-05" style="font-size:18px; color:#3a403e;text-decoration:underline;">ACH Transfer Info</div>
                 </div>
 				
 				<div class="modal-body">
-					<div class="text-center" id="ach_details">
+					<div class="text-center" id="ach_details" style="font-size:16px;">
 						
-						Account details are..
-						
-						Details 1..<br/>
-						Details 2..<br/>
-						Details 3..<br/>
-						Details 4..<br/>
-						Details 5..<br/>
+						BANK OF AMERICA<br/>
+						VINETURE ACC # 4880 6508 9963<br/>
+						ROUTING # 111000025<br/>
+						5800 Ranchester Dr,<br/>
+						STE 168,<br/>
+						Houston Tx 77036.<br/>
+						<br/>
+						<br/>
 						
                     </div>
                 </div>
